@@ -36,7 +36,8 @@ const OVERLAY = `
       #__demo_cursor svg { filter: drop-shadow(0 2px 4px rgba(0,0,0,.6)); }
       .__demo_ripple { position: fixed; z-index: 99998; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%;
         border: 3px solid #5eead4; pointer-events: none; animation: __rip .55s ease-out forwards; }
-      @keyframes __rip { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.4); opacity: 0; } }\`;
+      @keyframes __rip { from { transform: scale(.3); opacity: 1; } to { transform: scale(1.4); opacity: 0; } }
+      .toast { display: none !important; }\`;
     document.head.appendChild(style);
     const cap = document.createElement("div"); cap.id = "__demo_caption"; document.body.appendChild(cap);
     const ff = document.createElement("div"); ff.id = "__demo_ff"; ff.textContent = "⏩ ${SPEEDUP}× · real EDA tools running"; document.body.appendChild(ff);

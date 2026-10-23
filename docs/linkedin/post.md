@@ -25,7 +25,7 @@ The part I care most about: **AI proposes, real tools decide.** Pass/fail only e
 
 It's also model-agnostic: plug in a local model, a self-hosted gateway or a hosted API under a data-egress policy (local-only by default).
 
-I also stress-tested it with 30+ tough cases: contradictory specs, 5 nm and dual-clock asks, prompt injection, tampered packages, SSRF attempts. All handled.
+I also stress-tested it with 30 tough cases: contradictory specs, 5 nm and dual-clock asks, prompt injection, tampered packages, SSRF attempts. All handled.
 
 🔗 Live demo: [Vercel URL]
 💻 Code: github.com/kashyap963hvk-afk/AUTO-SEMI

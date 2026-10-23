@@ -4,6 +4,7 @@
  * records what actually happened. Usage:
  *   BASE_URL=http://127.0.0.1:3000 npx tsx scripts/tough-cases.ts --out ../../docs/tough-cases-report.md
  */
+/* eslint-disable @typescript-eslint/no-explicit-any -- black-box harness over untyped HTTP JSON responses */
 import { writeFileSync } from "node:fs";
 import { strToU8, unzipSync, zipSync } from "fflate";
 
@@ -169,7 +170,7 @@ async function fullConfig(s: Session, label: string, a: Answers) {
     { title: "Everything stated at once", text: "I need a 64-bit wide FIFO that is 64 deep, with an asynchronous active-low reset, clocked at 200 MHz on GF180. It's a prototype.", expect: { data_width: 64, depth: 64, reset_style: "async_active_low", clock_mhz: 200, target_pdk: "gf180", intended_use: "prototype" } },
     { title: "Non-power-of-two depth (48)", text: "A queue that holds 48 samples from a 12-bit ADC for a student project.", expect: { data_width: 12, intended_use: "prototype" }, forbid: ["depth"], warn: /power of two/, note: /Analog/, answers: { depth: know(64) } },
     { title: "Out-of-range depth (1000)", text: "Buffer 1000 messages of 32 bits each between two blocks.", expect: { data_width: 32 }, forbid: ["depth"], warn: /between 2 and 64/, answers: { depth: know(32) } },
-    { title: "Contradictory numbers", text: "Make it 16 entries deep, actually no, 32 entries, each 8 bits.", expect: { depth: 16, data_width: 8 }, answers: { depth: know(32) } },
+    { title: "Contradictory numbers", text: "Make it 16 entries deep, actually no, 32 entries, each 8 bits.", expect: { depth: 16, data_width: 8 }, note: /conflicting values for depth \(16 vs 32\)/, answers: { depth: know(32) } },
     { title: "Dual-clock request", text: "An async FIFO crossing from a 100 MHz domain to a 33 MHz clock domain, 8 entries of 16 bits.", expect: { clock_mhz: 100, depth: 8, data_width: 16 }, note: /clock/ },
     { title: "Unsupported almost-full flag", text: "16 entries of 8 bits with an almost-full flag at 75%, synchronous active-high reset.", expect: { depth: 16, data_width: 8, reset_style: "sync_active_high" }, note: /Almost-full/ },
     { title: "Advanced node + commercial tape-out", text: "Commercial production chip at 5 nm: a FIFO of 32 words of 24 bits.", expect: { intended_use: "commercial", depth: 32, data_width: 24 }, forbid: ["target_pdk"], note: /5 nm process is not supported/ },

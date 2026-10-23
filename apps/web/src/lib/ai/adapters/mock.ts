@@ -34,6 +34,12 @@ export function mockExtract(text: string): ReqExtractOutput {
   else if ((m = text.match(/\b(commercial|production|mass[- ]produc\w+|manufactur\w+)\b/i))) add("intended_use", "commercial", m[0]);
   const isFifo = /\b(fifo|buffer|queue|first[- ]in)\b/i.test(text);
   const notes: string[] = [];
+  const depths = [...text.matchAll(/\b(\d{1,4})\s+(?:[a-z-]+\s+)?(?:entries|values|items|words|slots|elements|samples|readings|numbers|bytes|messages)\b/gi)].map((x) => x[1]);
+  const widths = [...text.matchAll(/(\d{1,3})\s*-?\s*bits?\b/gi)].map((x) => x[1]);
+  for (const [name, vals] of [["depth", depths], ["data width", widths]] as const) {
+    const uniq = [...new Set(vals)];
+    if (uniq.length > 1) notes.push(`Your description gives conflicting values for ${name} (${uniq.join(" vs ")}); the first is only a proposal, so please confirm the one you want.`);
+  }
   if (/\b(two|2|multiple|dual)\s+clocks?\b|\basync(hronous)?\s+fifo\b|clock[- ]domain/i.test(text)) notes.push("Multiple clock domains were mentioned; this release supports a single clock only.");
   if (/\b(almost[- ]full|almost[- ]empty)\b/i.test(text)) notes.push("Almost-full/almost-empty flags are out of scope for this release.");
   if (/\b(analog|adc|dac|pll|rf)\b/i.test(text)) notes.push("Analog/mixed-signal blocks are out of scope for this release.");

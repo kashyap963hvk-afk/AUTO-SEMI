@@ -111,6 +111,11 @@ describe("mock requirements analyst", () => {
     expect(map).toEqual({ data_width: "8", depth: "16", clock_mhz: "50", target_pdk: "sky130hd", intended_use: "prototype" });
     expect(map.reset_style).toBeUndefined();
   });
+  it("flags contradictory values instead of silently picking one", () => {
+    const out = mockExtract("Make it 16 entries deep, actually no, 32 entries, each 8 bits.");
+    expect(out.fields.find((f) => f.key === "depth")?.value).toBe("16");
+    expect(out.notes.join(" ")).toMatch(/conflicting values for depth \(16 vs 32\)/);
+  });
 });
 
 async function localProvider() {

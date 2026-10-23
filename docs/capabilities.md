@@ -12,7 +12,7 @@ Status key: **Working**: implemented and exercised by tests or E2E with real too
 | Simulation regression | Working | cocotb 2.1.0 + Icarus Verilog 12.0. 7 tests (directed + 2000-cycle seeded random scoreboard) with requirement IDs. |
 | Coverage collection | Not implemented | No coverage figures are reported. |
 | UVM | Not implemented | Preflight reports it unsupported on this path. cocotb 2.x needs Verilator ≥ 5.036 (installed: 5.020). |
-| Formal | Working | SymbiYosys + smtbmc/z3: k-induction proof plus cover checks. Distinct PROVED / BOUNDED_PASS_ONLY / COUNTEREXAMPLE_FOUND / UNKNOWN / TIMEOUT. Boolector crashed in preflight testing, so z3 is the default. Some 32-bit async-reset configurations exceed the 300 s / 2 GB limits (reported as TIMEOUT/ERROR). |
+| Formal | Working | SymbiYosys: cover checks, then k-induction with `smtbmc --unroll z3`, then ABC PDR as fallback if inconclusive. Distinct PROVED / BOUNDED_PASS_ONLY / COUNTEREXAMPLE_FOUND / UNKNOWN / TIMEOUT. All 72 recorded configurations prove (W1–W64, D2–D64, all reset styles). For DEPTH > 16 the cover targets 16 entries (full reachability is shown by simulation). Boolector crashed in preflight testing and is not used. PDR counterexamples cannot be replayed without yices. |
 | Synthesis | Working | Yosys generic `synth`: cell counts, flip-flops, latch check. Not area in µm² (no Liberty file). |
 | In-browser-server synthesis (no worker) | Working | `@yowasp/yosys` 0.70 in the Node runtime, including on Vercel. |
 | Timing constraints | Gated | SDC draft from an approved clock. A human approves the exact SHA-256. Missing clock → `TIMING_CONSTRAINTS_INCOMPLETE`. |
