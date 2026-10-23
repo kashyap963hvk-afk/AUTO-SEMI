@@ -6,3 +6,4 @@ build/
 sim_build/
 .env
 .env.local
+results.xml

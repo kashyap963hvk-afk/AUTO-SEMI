@@ -59,7 +59,7 @@ Full stack with PostgreSQL and an isolated worker container: `cp .env.example .e
 
 ## Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkashyap963hvk-afk%2FAUTO-SEMI&root-directory=apps%2Fweb&project-name=devin-ai-vlsi)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkashyap963hvk-afk%2Fauto-vlsi&root-directory=apps%2Fweb&project-name=auto-vlsi)
 
 1. Import the repository in Vercel and set **Root Directory = `apps/web`**. The framework is detected as Next.js.
 2. Optional: add **Neon Postgres** from the Vercel Marketplace (sets `DATABASE_URL`). Without it, projects live in an ephemeral `/tmp` database and the UI says so.

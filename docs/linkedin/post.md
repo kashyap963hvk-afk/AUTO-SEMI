@@ -28,7 +28,7 @@ It's also model-agnostic: plug in a local model, a self-hosted gateway or a host
 I also stress-tested it with 30 tough cases: contradictory specs, 5 nm and dual-clock asks, prompt injection, tampered packages, SSRF attempts. All handled.
 
 🔗 Live demo: [Vercel URL]
-💻 Code: github.com/kashyap963hvk-afk/AUTO-SEMI
+💻 Code: github.com/kashyap963hvk-afk/auto-vlsi
 
 #VLSI #ASIC #SemiconductorDesign #EDA #RTL #Verification #FormalVerification #OpenSource #AI #HardwareDesign
 
@@ -42,7 +42,7 @@ Devin AI for VLSI turns "a 16-byte UART buffer at 50 MHz on SKY130" into an appr
 
 AI proposes; real tools decide. Layout is reported BLOCKED, never faked.
 
-🔗 [Vercel URL] · 💻 github.com/kashyap963hvk-afk/AUTO-SEMI
+🔗 [Vercel URL] · 💻 github.com/kashyap963hvk-afk/auto-vlsi
 #VLSI #EDA #AI #ASIC
 
 ---

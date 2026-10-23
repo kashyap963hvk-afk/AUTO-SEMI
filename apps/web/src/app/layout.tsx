@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav className="nav">
             <Link href="/">Projects</Link>
             <Link href="/settings">Tools &amp; AI</Link>
-            <a href="https://github.com/kashyap963hvk-afk/AUTO-SEMI" target="_blank" rel="noreferrer">
+            <a href="https://github.com/kashyap963hvk-afk/auto-vlsi" target="_blank" rel="noreferrer">
               Source
             </a>
           </nav>
