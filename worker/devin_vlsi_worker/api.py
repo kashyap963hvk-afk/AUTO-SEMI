@@ -14,7 +14,7 @@ from .jobs import run_job
 from .models import Job, StageResult
 from .preflight import capability_profile
 
-app = FastAPI(title="Devin AI for VLSI worker", version=__version__)
+app = FastAPI(title="Auto-VLSI worker", version=__version__)
 _slots = asyncio.Semaphore(int(os.environ.get("WORKER_CONCURRENCY", "2")))
 
 

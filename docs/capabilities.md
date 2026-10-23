@@ -16,9 +16,9 @@ Status key: **Working**: implemented and exercised by tests or E2E with real too
 | Synthesis | Working | Yosys generic `synth`: cell counts, flip-flops, latch check. Not area in µm² (no Liberty file). |
 | In-browser-server synthesis (no worker) | Working | `@yowasp/yosys` 0.70 in the Node runtime, including on Vercel. |
 | Timing constraints | Gated | SDC draft from an approved clock. A human approves the exact SHA-256. Missing clock → `TIMING_CONSTRAINTS_INCOMPLETE`. |
-| Physical design (ORFS), STA, DRC/LVS, antenna | Gated | Adapter + preflight implemented. Blocked: no OpenROAD/ORFS/PDK installed. Never produces fake GDS. |
+| Physical design (ORFS on sky130hd), STA, DRC/LVS, antenna | Working (one PDK, one corner) | Real RTL→GDSII with OpenROAD + KLayout. 32×32 FIFO @ 200 MHz: all required checks PASS (slack +0.08 ns, tt only). 8×16 @ 50 MHz: all required checks PASS (after a real m3.2 DRC failure in the floorplan was found and fixed). Gaps shown as NOT_RUN: ss/ff corners, netlist-vs-RTL equivalence. Open ORFS deck, not foundry sign-off. Live runs need a worker; Vercel serves only recorded runs. |
 | DFT / ATPG, I/O, packaging | Not implemented | Listed in the checklist as not applicable or a blocker, depending on policy. |
 | Bounded repair loop | Working | Template-regeneration diff, user applies it, 3-round limit, failed revisions preserved. |
-| Release candidate, human sign-off, deterministic ZIP, checksum verification | Working | `rtl-prototype` policy is exportable. `open-pdk-physical-prototype` is blocked until physical checks exist. |
+| Release candidate, human sign-off, deterministic ZIP, checksum verification | Working | `rtl-prototype` policy is exportable. `open-pdk-physical-prototype` is exportable only when every required physical check passed on the same revision; the reviewer must accept each NOT_RUN gap by name. |
 | Provider-neutral AI: mock, OpenAI-compatible (local/private/gateway/hosted), native Anthropic | Working (mock, OpenAI-compatible tested against a local test server) / Implemented (Anthropic, not exercised: no key in CI) | Conformance tests, data-egress policy, per-role routing, provenance. |
 | Foundry submission | Not implemented by design | `SUBMITTED` / `PROVIDER_ACCEPTED` are unreachable states. |

@@ -1,4 +1,4 @@
--- Devin AI for VLSI: initial schema. Applied by src/lib/store/db.ts in filename order.
+-- Auto-VLSI: initial schema. Applied by src/lib/store/db.ts in filename order.
 
 CREATE TABLE users (
   id           TEXT PRIMARY KEY,

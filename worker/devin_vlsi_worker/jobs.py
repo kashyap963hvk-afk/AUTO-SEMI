@@ -40,7 +40,14 @@ STAGE_LIMITATIONS = {
         "Cover (vacuity) checks run to a bounded depth; for DEPTH > 16 they target 16 stored items, and full-flag reachability is shown by simulation.",
     ],
     "synthesis": ["Generic Yosys gates without a Liberty file: cell counts are estimates, not silicon area, timing or power."],
-    "physical": ["ORFS execution path has not been run against a real ORFS installation in this repository's environments."],
+    "physical": [
+        "Static timing is analysed at ONE corner only (sky130 tt_025C_1v80); slow/fast corners and OCV are not checked.",
+        "DRC/LVS use the open-source KLayout decks shipped with ORFS (prototype checks), not foundry sign-off decks.",
+        "KLayout DRC runs FEOL (diffusion/poly/well/implant), BEOL (metal/via) and off-grid rules in tiled flat mode (60 um tiles, 10 um borders), because deep mode does not finish the FEOL rules in practical time. The open deck codes 165 FEOL checks and marks about a dozen rules (e.g. licon.3, licon.9, dnwell.6, some vpp rules) as not coded; density and seal-ring rules are not checked.",
+        "LVS uses a CDL pruned to the cells the design instantiates and three documented deck fixes (report_lvs, substrate = extent - NWELL, schematic purge of device-less fill/tap cells).",
+        "No logical equivalence check of the final netlist (eqy not installed); no seal ring, pad ring, ESD or packaging.",
+        "Power is a vectorless estimate at the typical corner, not a sign-off power analysis.",
+    ],
 }
 
 MAX_ARTIFACT_INLINE = 256_000
@@ -82,6 +89,18 @@ def summarise(stage: str, status: StageStatus, outputs: list[AdapterOutput], res
         cover = result.metrics.get("cover_task")
         cover_note = "" if cover in (None, "PASS") else f"; cover/vacuity checks {cover}, so the result is incomplete"
         return f"formal: {result.formal_status.value}" + (f" ({failed} failing assertion(s))" if failed else "") + cover_note
+    if stage == "physical" and result.metrics.get("checks"):
+        m = result.metrics
+        failed = [k for k, v in m["checks"].items() if v not in ("PASS", "NOT_RUN")]
+        head = "GDSII produced; all required sign-off checks passed" if status == StageStatus.PASS else f"GDSII produced; failing checks: {', '.join(failed)}" if m["checks"].get("flow") == "PASS" else "flow failed before GDSII"
+        if m.get("wns_ns") is not None:
+            head += f" · WNS {m['wns_ns']:.2f} ns, worst slack {m.get('worst_slack_ns')} ns @ {m.get('clock_period_ns')} ns clock (tt corner)"
+        if m.get("design_area_um2"):
+            head += f" · {m['design_area_um2']:.0f} µm², {m.get('utilization_pct')}% util"
+        not_run = [k for k, v in m["checks"].items() if v == "NOT_RUN"]
+        if not_run:
+            head += f" · NOT RUN: {', '.join(not_run)}"
+        return head
     if stage == "synthesis" and result.metrics.get("cells_total") is not None:
         return f"synthesised: {result.metrics['cells_total']} generic cells, {result.metrics.get('sequential_cells')} sequential, {result.metrics.get('latches')} latches"
     errors = sum(f.severity == "error" for f in result.findings)
@@ -117,7 +136,9 @@ def run_job(job: Job, keep_dir: Path | None = None) -> StageResult:
             out = adapter.run(job, run_dir, versions[adapter.tool])
             outputs.append(out)
             findings += out.findings
-            if out.step.status != StageStatus.PASS and status == StageStatus.PASS:
+            if "stage_status" in out.extra:
+                status = out.extra["stage_status"]
+            elif out.step.status != StageStatus.PASS and status == StageStatus.PASS:
                 status = out.step.status
         result = StageResult(
             job_id=job.job_id,
@@ -147,7 +168,12 @@ def run_job(job: Job, keep_dir: Path | None = None) -> StageResult:
                 result.formal_status = o.extra["formal_status"]
         for adapter in adapters:
             for path in adapter.collect_artifacts(job, run_dir):
-                result.artifacts.append(_artifact(path, run_dir, inline=True))
+                if path.suffix in (".gds", ".webp", ".png", ".oas"):
+                    from .adapters.physical import binary_artifact
+
+                    result.artifacts.append(binary_artifact(path, run_dir))
+                else:
+                    result.artifacts.append(_artifact(path, run_dir, inline=True))
         if job.stage == "formal" and result.formal_status is None:
             from .models import FormalStatus
 

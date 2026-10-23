@@ -18,7 +18,7 @@ import {
 import { RELEASE_POLICIES, buildChecklist, blockers, resultLevel, type ReleaseInputs, type ReleasePolicyId } from "../domain/release";
 import { DesignSpec, toYaml, type SpecField } from "../domain/spec";
 import { assertTransition, canRunChecks, isRunning, type WorkflowState } from "../domain/workflow";
-import { DEMO_DEFECTS, TEMPLATE_ID, generateFilelist, generateProps, generateRtl, generateSdc, resetForms, type DemoDefect } from "../design/fifoTemplate";
+import { DEMO_DEFECTS, TEMPLATE_ID, generateFilelist, generateProps, generateRtl, generateSdc, type DemoDefect } from "../design/fifoTemplate";
 import { unifiedDiff } from "../diff";
 import { STAGES, type Stage, type StageResult } from "../eda/contracts";
 import { buildJob, type SourceFiles } from "../eda/jobs";
@@ -314,7 +314,7 @@ function templateFiles(spec: DesignSpec, defects: DemoDefect[]): SourceFiles {
     "rtl/filelist.f": generateFilelist(),
   };
   const clock = fieldMap(spec.fields).clock_mhz;
-  if (clock?.value && clock.status === "confirmed") files["constraints/approved.sdc"] = generateSdc(Number(clock.value), resetForms(cfg.RESET).port);
+  if (clock?.value && clock.status === "confirmed") files["constraints/approved.sdc"] = generateSdc(Number(clock.value));
   return files;
 }
 

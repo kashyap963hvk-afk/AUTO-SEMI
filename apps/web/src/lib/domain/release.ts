@@ -52,6 +52,31 @@ function stageItem(stage: Stage, title: string, inp: ReleaseInputs, required: bo
   return { id: `run.${stage}`, title, requirement, status: r.status.startsWith("BLOCKED") ? "missing" : "fail", detail: `${r.status}: ${r.summary}` };
 }
 
+/** Checks the physical stage could not run: never silently passed; a reviewer must accept each one explicitly. */
+function physicalGaps(inp: ReleaseInputs): ChecklistItem[] {
+  const run = inp.latestRuns.physical;
+  const checks = (run?.result.metrics as { checks?: Record<string, string> } | undefined)?.checks ?? {};
+  const gap = (id: string, title: string, key: string, why: string): ChecklistItem => ({
+    id,
+    title,
+    requirement: "optional",
+    status: checks[key] === "PASS" ? "pass" : "missing",
+    detail: checks[key] === "PASS" ? "run and passed" : `${checks[key] ?? "NOT_RUN"}: ${why}`,
+  });
+  return [
+    gap("phys.feol_drc", "FEOL DRC (diffusion / poly / well rules)", "klayout_drc_feol", "the open deck's FEOL rules did not run or reported violations; required before tapeout"),
+    gap("phys.multi_corner", "Multi-corner STA (slow/fast corners)", "multi_corner_sta", "only the typical corner library is installed"),
+    gap("phys.equivalence", "Logic equivalence: final netlist vs RTL", "equivalence_check", "eqy is not installed"),
+  ];
+}
+
+/** A layout run that exists but did not pass is disclosed even where the policy does not require one. */
+function physicalNote(inp: ReleaseInputs): string {
+  const run = inp.latestRuns.physical;
+  if (!run || run.source_revision !== inp.sourceRevision || run.result.status === "PASS" || run.result.status.startsWith("BLOCKED")) return "";
+  return ` Note: a physical run on this revision reported ${run.result.status}: ${run.result.summary}`;
+}
+
 export function buildChecklist(inp: ReleaseInputs): ChecklistItem[] {
   const pol = RELEASE_POLICIES[inp.policy];
   const items: ChecklistItem[] = [
@@ -68,11 +93,12 @@ export function buildChecklist(inp: ReleaseInputs): ChecklistItem[] {
       { id: "constraints.sdc", title: "Timing constraints (SDC) approved by a human", requirement: "required", status: inp.constraintsApproved ? "pass" : inp.clockKnown ? "waiting" : "missing", detail: inp.constraintsApproved ? "approved" : inp.clockKnown ? "draft SDC awaiting approval" : "TIMING_CONSTRAINTS_INCOMPLETE: clock frequency unknown" },
       { id: "pdk.confirmed", title: "PDK variant confirmed and collateral available", requirement: "required", status: inp.pdkConfirmed ? "pass" : "missing", detail: inp.pdkConfirmed ? "PDK named in the approved spec" : "PDK not confirmed" },
       stageItem("physical", "Physical implementation (ORFS) with STA, DRC, LVS, antenna", inp, true),
+      ...physicalGaps(inp),
     );
   } else {
     items.push(
       { id: "constraints.sdc", title: "Timing constraints (SDC)", requirement: "optional", status: inp.constraintsApproved ? "pass" : "not_applicable", detail: "not required for an RTL-only package; required before physical design" },
-      { id: "run.physical", title: "Physical implementation, STA, DRC/LVS", requirement: "not_applicable", status: "not_applicable", detail: "outside this release policy. The package is not layout-ready." },
+      { id: "run.physical", title: "Physical implementation, STA, DRC/LVS", requirement: "not_applicable", status: "not_applicable", detail: `outside this release policy. The package is not layout-ready.${physicalNote(inp)}` },
     );
   }
   items.push(

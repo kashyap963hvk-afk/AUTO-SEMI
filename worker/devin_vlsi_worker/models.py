@@ -110,7 +110,8 @@ class Artifact(BaseModel):
     path: str
     sha256: str
     size: int
-    content: str | None = None  # included for small text artifacts only
+    content: str | None = None  # small text artifacts inline; binary ones gzip+base64
+    encoding: str | None = None  # None (utf-8 text) or "gzip+base64"
 
 
 class StageResult(BaseModel):

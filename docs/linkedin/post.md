@@ -1,54 +1,59 @@
 # LinkedIn kit
 
-**Video:** `docs/linkedin/devin-ai-vlsi-demo.mp4` (1920×1080, H.264, muted autoplay-friendly captions burned in).
+**Video:** `docs/linkedin/auto-vlsi-demo.mp4` (1920×1080, H.264, captions burned in for muted autoplay).
 **Thumbnail/cover:** `docs/linkedin/cover.png`.
 
-Upload the MP4 as a native LinkedIn video (not a link) and paste the post below. Replace the bracketed links once the Vercel URL is live.
+Upload the MP4 as a native LinkedIn video, not a link, and paste the post below. Replace `[Vercel URL]` once the deployment is live.
 
 ---
 
-## Post (≈1,250 characters)
+## Post (≈1,500 characters)
 
-What if you could describe a chip in plain English and get verified hardware back, with proof you can audit?
+I gave an AI-guided chip flow one tough job and recorded it end to end, from plain English to GDSII.
 
-I built **Devin AI for VLSI**, an AI-guided flow for small digital ASIC blocks. In the video:
+The ask: "a FIFO that stores 32 values of 32 bits between a DMA engine and a CPU, async active-low reset, 200 MHz, SKY130."
 
-🗣️ I type: "a buffer that holds 16 bytes for a UART receiver, 50 MHz, SKY130"
-🧭 It asks short, plain-English questions. Every AI suggestion stays labelled as a proposal until a human approves it.
-📐 It writes a versioned spec and architecture, then generates RTL.
-🐞 I plant a real bug. Simulation catches it (4 of 7 tests fail) and nothing turns green.
-🔧 It proposes a one-line fix as a new revision, without touching the tests. Re-run: 7/7 tests pass, the formal proof completes (k-induction), synthesis comes back with 0 latches.
-🚫 Layout tools aren't installed, so physical design shows BLOCKED instead of a fake GDS.
-📦 A human signs off and it exports a SHA-256-verified package, marked "not submitted to any foundry".
+What happened in **Auto-VLSI**:
+🧭 It asked about a corner case I never mentioned instead of guessing. Each value stayed a proposal until I approved it.
+🐞 I planted a real bug. Simulation caught it (4 of 7 tests failed) and nothing turned green.
+🔧 A one-line fix landed as a new revision with the tests untouched: 7/7 pass, a k-induction proof completed, Yosys synthesis reported 0 latches.
+🧱 OpenROAD laid it out on SKY130:
+- 49,822 µm² of cells
+- LVS match
+- 0 DRC markers (front-end and metal rules), 0 antenna violations
+- timing met at 200 MHz
 
-The part I care most about: **AI proposes, real tools decide.** Pass/fail only ever comes from Verilator, cocotb + Icarus, SymbiYosys/z3 and Yosys. Never from model prose.
+The brutally honest part:
+⚠️ Slack is only +0.08 ns (80 ps), and only at the typical corner. Slow/fast corners were NOT run. That's unmeasured, but with 80 ps of margin I wouldn't expect it to pass the slow corner.
+⚠️ No equivalence check between the routed netlist and the RTL.
+⚠️ These are the open-source decks, not foundry sign-off. There are no pads, seal ring or density checks. It's a prototype block, not a tape-out.
+❌ My own flow failed DRC on small designs at first: an IO pin sat 25 nm from a power-grid via. The tool reported FAIL and blocked the release until I fixed the floorplan margin. The fix cost the 200 MHz design half of its slack.
 
-It's also model-agnostic: plug in a local model, a self-hosted gateway or a hosted API under a data-egress policy (local-only by default).
+AI proposes; real tools decide. Every PASS comes from Verilator, cocotb, SymbiYosys, Yosys, OpenROAD or KLayout, never from model prose. Every gap shows up as NOT RUN, and a human must accept it by name.
 
-I also stress-tested it with 30 tough cases: contradictory specs, 5 nm and dual-clock asks, prompt injection, tampered packages, SSRF attempts. All handled.
+🔗 [Vercel URL]
+💻 github.com/kashyap963hvk-afk/auto-vlsi
 
-🔗 Live demo: [Vercel URL]
-💻 Code: github.com/kashyap963hvk-afk/auto-vlsi
-
-#VLSI #ASIC #SemiconductorDesign #EDA #RTL #Verification #FormalVerification #OpenSource #AI #HardwareDesign
+#VLSI #ASIC #PhysicalDesign #OpenROAD #SKY130 #EDA #Verification #OpenSource #AI
 
 ---
 
-## Shorter variant (≈500 characters)
+## Shorter variant (≈550 characters)
 
-Plain English in, verified chip RTL out, with evidence you can audit.
+Plain English → verified RTL → GDSII on SKY130, recorded live.
 
-Devin AI for VLSI turns "a 16-byte UART buffer at 50 MHz on SKY130" into an approved spec, RTL, a 7-test cocotb regression, a SymbiYosys proof and Yosys synthesis. In the demo I plant a bug, it gets caught, and a bounded fix lands as a new revision.
+For a 32×32 FIFO at 200 MHz, Auto-VLSI ran the full chain: a planted bug caught, then fixed, 7/7 tests, a formal proof, OpenROAD layout, LVS match and 0 DRC.
 
-AI proposes; real tools decide. Layout is reported BLOCKED, never faked.
+Not done, and shown as NOT RUN: slow/fast corners (slack is +0.08 ns at typical only) and the netlist-vs-RTL equivalence check. Open decks, not sign-off.
 
 🔗 [Vercel URL] · 💻 github.com/kashyap963hvk-afk/auto-vlsi
-#VLSI #EDA #AI #ASIC
+#VLSI #EDA #OpenROAD #AI
 
 ---
 
 ## Honesty notes (keep the claims accurate)
 
-- Scope: one design family (synchronous FIFO), prototype flow, public-PDK targets. It is not "any chip" and not foundry sign-off.
-- The video runs locally with a live EDA worker. The Vercel deployment reuses recorded real-tool results (matched by exact input hash) plus in-process Yosys, and labels them that way.
-- The default AI in the demo is the built-in deterministic engine, labelled "mock" in the UI. Connecting an LLM is optional.
+- **Scope.** One design family (synchronous FIFOs), one PDK (sky130hd) and one timing corner (tt). It is not "any chip" and not foundry sign-off. Full numbers and gaps: `docs/physical-design-report.md`.
+- **The video's physical run was live** on a local worker (OpenROAD + KLayout). The recorder refuses to publish if the physical stage was served from recorded evidence. The 30× badge marks the sped-up wait, and the real duration is shown on screen.
+- **On Vercel there is no layout tool.** Physical results exist only for the two recorded configurations, labelled "Recorded real run". Every other configuration shows BLOCKED.
+- **The default AI** in the demo is the built-in deterministic engine, labelled "mock" in the UI. Connecting an LLM is optional.

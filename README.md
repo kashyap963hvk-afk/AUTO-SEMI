@@ -1,8 +1,8 @@
-# Devin AI for VLSI
+# Auto-VLSI
 
 **Describe the chip you need in plain English. Get a reviewed specification, verified RTL, real tool evidence, and a hashed release package for a qualified engineer to review.**
 
-This repository implements the first release of the product specified in [`DEVIN_AI_VLSI_CLAUDE_CODE_SPEC.md`](DEVIN_AI_VLSI_CLAUDE_CODE_SPEC.md) (v1.1). It covers one complete golden path, a small synchronous FIFO, with an auditable workflow, real open-source EDA tools and provider-neutral AI.
+This repository implements the first release of the product specified in (codename "Devin AI for VLSI" in the spec) [`DEVIN_AI_VLSI_CLAUDE_CODE_SPEC.md`](DEVIN_AI_VLSI_CLAUDE_CODE_SPEC.md) (v1.1). It covers one design family (synchronous FIFOs) end to end, plain English to GDSII on SKY130, with an auditable workflow, real open-source EDA tools and provider-neutral AI.
 
 > This is a prototype/educational flow. It does not design arbitrary chips, it is not foundry sign-off, and it never submits anything to a foundry. Every check shows whether it ran, how, and with which tool version.
 
@@ -17,7 +17,7 @@ This repository implements the first release of the product specified in [`DEVIN
 | 5. RTL | Deterministic template, immutable SHA-256-hashed revisions. Optional planted demo bug. | Source manifest hash |
 | 6. Verify | **Verilator** lint + **Yosys** elaboration → **cocotb + Icarus** 7-test regression → **SymbiYosys/z3** k-induction proof + covers → **Yosys** synthesis. Stops at the first failure. | Tool versions, commands, exit codes, logs, tests ↔ requirement IDs |
 | 7. Diagnose & repair | Plain-English diagnosis (advisory). Repair proposes a diff as a *new* revision, capped at 3 rounds, and never edits tests. | Preserved failed revisions |
-| 8. Physical | SDC draft from the approved clock, human approval bound to its hash, ORFS adapter. **Blocked** until OpenROAD + PDK are installed. | `TIMING_CONSTRAINTS_INCOMPLETE` / `BLOCKED_TOOL_UNAVAILABLE` |
+| 8. Physical | SDC draft from the approved clock, human approval bound to its hash, then **OpenROAD Flow Scripts on SKY130**: floorplan, PDN, placement, CTS, routing, GDSII, post-route antenna, KLayout DRC (FEOL + BEOL) and LVS. Multi-corner STA and equivalence are shown as NOT RUN. See [docs/physical-design-report.md](docs/physical-design-report.md). | Each check PASS / FAIL / NOT_RUN, metrics, routed-layout image, GDS (SHA-256) |
 | 9. Release | Checklist per policy, qualified-human sign-off, deterministic ZIP with `manifest.json` + `sha256sums.txt`, tamper check. | Package, never "submitted" |
 
 ## Repository map
@@ -29,7 +29,7 @@ apps/web/        Next.js 15 app: UI, HTTP API, workflow state machine, policy ga
   src/lib/design/   RTL / formal-property / SDC templates
   src/lib/eda/      job contract, runner (worker → recorded → WASM → blocked), Yosys WASM adapter
   src/lib/ai/       AIProvider contract, registry, conformance, egress policy, SSRF guard, agent runtime
-  evidence/         292 results from real tool runs, keyed by job-input SHA-256 (73 configurations)
+  evidence/         294 results from real tool runs, keyed by job-input SHA-256 (73 RTL configurations + 2 layouts)
   migrations/       PostgreSQL schema
   scripts/          evidence recorder, browser E2E, tough-case suite, asset sync
 worker/          Python EDA worker: ToolAdapter implementations, sandbox, FastAPI + CLI, Dockerfile
@@ -53,7 +53,7 @@ WORKER_URL=http://127.0.0.1:8090 WORKER_TOKEN=dev-token npm run dev
 # open http://localhost:3000 and pick the "UART receive buffer" example
 ```
 
-Without a worker the app still runs the full golden path using recorded real-tool evidence (matched by exact input hash) and in-process Yosys. Anything else is reported as `BLOCKED_TOOL_UNAVAILABLE`.
+Physical design needs a worker with ORFS + SKY130 (`worker/scripts/install-orfs.sh`, or build the worker image with `--build-arg WITH_ORFS=1`). Without a worker the app still runs the full golden path using recorded real-tool evidence (matched by exact input hash) and in-process Yosys. Anything else is reported as `BLOCKED_TOOL_UNAVAILABLE`.
 
 Full stack with PostgreSQL and an isolated worker container: `cp .env.example .env && docker compose up --build`.
 
@@ -63,7 +63,7 @@ Full stack with PostgreSQL and an isolated worker container: `cp .env.example .e
 
 1. Import the repository in Vercel and set **Root Directory = `apps/web`**. The framework is detected as Next.js.
 2. Optional: add **Neon Postgres** from the Vercel Marketplace (sets `DATABASE_URL`). Without it, projects live in an ephemeral `/tmp` database and the UI says so.
-3. Optional: set `WORKER_URL` and `WORKER_TOKEN` to a worker you host (e.g. the Docker image on a VM) for live simulation and formal on any configuration.
+3. Optional: set `WORKER_URL` and `WORKER_TOKEN` to a worker you host (e.g. the Docker image on a VM) for live simulation, formal and physical design on any configuration. Without one, physical results exist only for the two recorded configurations; a layout run takes ~6 minutes, longer than a Vercel function may run.
 4. Optional: set `DEVIN_AI_ANTHROPIC_API_KEY` (or any `DEVIN_AI_*` key) and add the connection under **Tools & AI**. The default needs no AI account.
 
 Or from a terminal: `cd apps/web && npx vercel --prod`.
@@ -72,7 +72,7 @@ Or from a terminal: `cd apps/web && npx vercel --prod`.
 
 | Suite | Command | What it proves |
 |---|---|---|
-| Worker unit + real-tool integration | `cd worker && python -m pytest -q` | Reference FIFO passes lint/sim/formal/synth. The planted bug fails simulation and gives a formal counterexample. BMC is reported as bounded, never proved. Physical blocks honestly. Sandbox, redaction and path safety. |
+| Worker unit + real-tool integration | `cd worker && python -m pytest -q` | Reference FIFO passes lint/sim/formal/synth. The planted bug fails simulation and gives a formal counterexample. BMC is reported as bounded, never proved. Physical blocks without approved constraints or tools; with ORFS present, a real sky130hd RTL→GDS run must pass flow, STA, FEOL+BEOL DRC and LVS. Sandbox, redaction and path safety. |
 | Web unit/integration | `cd apps/web && npm test` | Template = reference RTL byte for byte. Workflow and approval gates, release policy, golden path with real recorded evidence, repair limit, deterministic export + tamper detection, cross-user isolation. AI layer: SSRF guard, egress policy, provider swap (mock ↔ local OpenAI-compatible server), conformance, no secret leakage, provider-neutral imports. |
 | Browser E2E | `npx tsx scripts/e2e-golden-path.ts` | Full golden path in Chromium, including planted bug → diagnosis → repair → sign-off → export → verify. |
 | Tough cases | `npx tsx scripts/tough-cases.ts --out ../../docs/tough-cases-report.md` | Adversarial requirements and abuse cases against a running deployment. See [docs/tough-cases-report.md](docs/tough-cases-report.md). |

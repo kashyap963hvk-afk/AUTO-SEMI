@@ -20,7 +20,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ALLOWED_EXECUTABLES = frozenset(
-    {"verilator", "iverilog", "vvp", "yosys", "yosys-smtbmc", "sby", "z3", "boolector", "python3", "make", "openroad"}
+    {"verilator", "iverilog", "vvp", "yosys", "yosys-smtbmc", "sby", "z3", "boolector", "python3", "make", "openroad", "klayout"}
 )
 
 # Environment variables that may be passed through to tools. Everything else,

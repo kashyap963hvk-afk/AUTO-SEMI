@@ -8,7 +8,7 @@ import { execFile } from "node:child_process";
 import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { promisify } from "node:util";
-import { generateFilelist, generateProps, generateRtl, type DemoDefect } from "../src/lib/design/fifoTemplate";
+import { generateFilelist, generateProps, generateRtl, generateSdc, type DemoDefect } from "../src/lib/design/fifoTemplate";
 import type { FifoConfig, ResetStyle } from "../src/lib/domain/fifo";
 import { buildJob } from "../src/lib/eda/jobs";
 import { jobInputHash } from "../src/lib/eda/jobs";
@@ -35,6 +35,11 @@ if (grid === "full") {
 }
 
 const STAGES: Stage[] = ["lint", "simulation", "formal", "synthesis"];
+/** Configurations that also get a real RTL-to-GDS run (needs ORFS on the worker): the demo designs. */
+const PHYSICAL: { cfg: FifoConfig; clockMhz: number; platform: string }[] = [
+  { cfg: base, clockMhz: 50, platform: "sky130hd" },
+  { cfg: { WIDTH: 32, DEPTH: 32, RESET: "async_active_low", ALLOW_WRITE_WHEN_FULL_WITH_READ: true }, clockMhz: 200, platform: "sky130hd" },
+];
 const jobs = new Map<string, { job: Job; label: string }>();
 for (const { cfg, defects } of configs) {
   const src = { "rtl/sync_fifo.sv": generateRtl(cfg, defects), "formal/sync_fifo_props.svh": generateProps(cfg), "rtl/filelist.f": generateFilelist() };
@@ -45,6 +50,13 @@ for (const { cfg, defects } of configs) {
   }
 }
 
+if (process.argv.includes("--physical")) {
+  for (const p of PHYSICAL) {
+    const src = { "rtl/sync_fifo.sv": generateRtl(p.cfg), "formal/sync_fifo_props.svh": generateProps(p.cfg), "rtl/filelist.f": generateFilelist(), "constraints/approved.sdc": generateSdc(p.clockMhz) };
+    const job = buildJob("physical", "rec-physical", src, p.cfg, { clockMhz: p.clockMhz, constraintsApproved: true, platform: p.platform });
+    jobs.set(jobInputHash(job), { job: { ...job, limits: { timeout_s: 3600, memory_mb: 8192, max_output_bytes: 400000 } }, label: `physical W${p.cfg.WIDTH} D${p.cfg.DEPTH} ${p.cfg.RESET} @${p.clockMhz}MHz ${p.platform}` });
+  }
+}
 mkdirSync(outDir, { recursive: true });
 const indexPath = path.join(outDir, "index.json");
 const index: Record<string, { label: string; status: string; summary: string; recorded_at: string }> = existsSync(indexPath) ? JSON.parse(readFileSync(indexPath, "utf8")) : {};

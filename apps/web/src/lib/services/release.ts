@@ -1,3 +1,4 @@
+import { gunzipSync } from "node:zlib";
 import { strFromU8, strToU8, unzipSync, zipSync } from "fflate";
 import { COCOTB_TEST_PATH, COCOTB_TEST_SOURCE } from "@/generated/designAssets";
 import { RELEASE_POLICIES, blockers, buildChecklist, resultLevel, type ChecklistItem } from "../domain/release";
@@ -75,7 +76,7 @@ export async function exportRelease(user: { id: string }, candidateId: string): 
   const arch = await repo.getArchitecture(p.id, p.data.architecture_approved_revision!);
   const latest = await latestRuns(p.id);
   const level = resultLevel({ ...inputs, releaseApproved: true });
-  const files: Record<string, string> = {};
+  const files: Record<string, string | Uint8Array> = {};
   for (const [k, v] of Object.entries(src.files)) files[k] = v;
   files[COCOTB_TEST_PATH] = COCOTB_TEST_SOURCE;
   files["spec/design_spec.yaml"] = specRow.yaml;
@@ -85,7 +86,14 @@ export async function exportRelease(user: { id: string }, candidateId: string): 
     const run = latest[s];
     if (!run || run.source_revision !== rc.source_revision) continue;
     files[`evidence/${s}/result.json`] = JSON.stringify(run.result, null, 2) + "\n";
-    for (const a of run.result.artifacts) if (a.content != null && /^[A-Za-z0-9_./-]+$/.test(a.path) && !a.path.includes("..")) files[`evidence/${s}/${a.path}`] = a.content;
+    for (const a of run.result.artifacts) {
+      if (a.content == null || !/^[A-Za-z0-9_./-]+$/.test(a.path) || a.path.includes("..")) continue;
+      const name = a.path.split("/").pop()!;
+      const dest = s === "physical" && name.endsWith(".gds") ? `physical/${name}` : `evidence/${s}/${a.path}`;
+      const bytes = a.encoding === "gzip+base64" ? new Uint8Array(gunzipSync(Buffer.from(a.content, "base64"))) : a.content;
+      if (typeof bytes !== "string" && sha256(bytes) !== a.sha256) throw new WorkflowError(`artifact ${a.path} does not match its recorded SHA-256`, 500);
+      files[dest] = bytes;
+    }
   }
   const policy = RELEASE_POLICIES[rc.policy];
   files["reports/user_summary.md"] = userSummary({ name: p.name, spec, level, latest, revision: rc.source_revision, checklist, policyLabel: policy.label });
@@ -93,7 +101,8 @@ export async function exportRelease(user: { id: string }, candidateId: string): 
   files["release/release_checklist.yaml"] = toYaml({ policy: rc.policy, items: checklist }) + "\n";
   files["README_FIRST.txt"] = `${p.name}\n\n${STATUS_NOTE}\n\nResult level: ${level.label}\nRelease policy: ${policy.label}\n${policy.description}\n\nVerify integrity: sha256sum -c release/sha256sums.txt\n`;
 
-  const fileList = Object.keys(files).sort().map((path) => ({ path, sha256: sha256(files[path]), size: Buffer.byteLength(files[path]) }));
+  const size = (v: string | Uint8Array) => (typeof v === "string" ? Buffer.byteLength(v) : v.length);
+  const fileList = Object.keys(files).sort().map((path) => ({ path, sha256: sha256(files[path]), size: size(files[path]) }));
   const manifest = {
     schema_version: "1.0",
     status: STATUS_NOTE,
@@ -118,9 +127,12 @@ export async function exportRelease(user: { id: string }, candidateId: string): 
 
   const mtime = new Date("2026-01-01T00:00:00Z");
   const tree: Record<string, [Uint8Array, { mtime: Date }]> = {};
-  for (const f of Object.keys(files).sort()) tree[f] = [strToU8(files[f]), { mtime }];
+  for (const f of Object.keys(files).sort()) {
+    const v = files[f];
+    tree[f] = [typeof v === "string" ? strToU8(v) : v, { mtime }];
+  }
   const zip = zipSync(tree, { level: 6 });
-  const manifestSha = sha256(files["release/manifest.json"]);
+  const manifestSha = sha256(files["release/manifest.json"] as string);
   await repo.updateRelease(candidateId, { status: "exported", manifest, manifest_hash: manifestSha });
   if (p.state !== "PACKAGE_EXPORTED") {
     assertTransition(p.state, "PACKAGE_EXPORTED");

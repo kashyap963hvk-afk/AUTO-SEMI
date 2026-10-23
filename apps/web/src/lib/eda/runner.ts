@@ -1,4 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
+import http from "node:http";
+import https from "node:https";
 import path from "node:path";
 import { StageResult, type Job, type Stage } from "./contracts";
 import { jobInputHash } from "./jobs";
@@ -40,17 +42,39 @@ export function loadRecorded(hash: string): StageResult | null {
   };
 }
 
+/**
+ * POST JSON with one overall deadline. Node's fetch (undici) also enforces a fixed 300 s
+ * headers timeout that an AbortSignal cannot extend, which silently broke layout runs longer
+ * than five minutes; node:http has no such limit. Redirects are not followed.
+ */
+function postJson(url: string, body: string, headers: Record<string, string>, timeoutMs: number): Promise<{ status: number; text: string }> {
+  return new Promise((resolve, reject) => {
+    const u = new URL(url);
+    const req = (u.protocol === "https:" ? https : http).request(u, { method: "POST", headers: { ...headers, "content-length": String(Buffer.byteLength(body)) } }, (res) => {
+      const chunks: Buffer[] = [];
+      res.on("data", (c: Buffer) => chunks.push(c));
+      res.on("end", () => {
+        clearTimeout(timer);
+        resolve({ status: res.statusCode ?? 0, text: Buffer.concat(chunks).toString("utf8") });
+      });
+      res.on("error", reject);
+    });
+    const timer = setTimeout(() => req.destroy(new Error(`no response within ${Math.round(timeoutMs / 1000)} s`)), timeoutMs);
+    req.on("error", (e) => {
+      clearTimeout(timer);
+      reject(e);
+    });
+    req.end(body);
+  });
+}
+
 async function callWorker(job: Job): Promise<StageResult> {
   const url = process.env.WORKER_URL!.replace(/\/$/, "");
-  const res = await fetch(`${url}/v1/jobs`, {
-    method: "POST",
-    headers: { "content-type": "application/json", authorization: `Bearer ${process.env.WORKER_TOKEN}` },
-    body: JSON.stringify({ ...job, limits: { timeout_s: 240, memory_mb: 2048, max_output_bytes: 200000 } }),
-    redirect: "error",
-    signal: AbortSignal.timeout(280_000),
-  });
-  if (!res.ok) throw new Error(`worker returned HTTP ${res.status}`);
-  const parsed = StageResult.parse(await res.json());
+  const physical = job.stage === "physical";
+  const body = JSON.stringify({ ...job, limits: physical ? { timeout_s: 3600, memory_mb: 8192, max_output_bytes: 400000 } : { timeout_s: 240, memory_mb: 2048, max_output_bytes: 200000 } });
+  const res = await postJson(`${url}/v1/jobs`, body, { "content-type": "application/json", authorization: `Bearer ${process.env.WORKER_TOKEN}` }, physical ? 3_700_000 : 280_000);
+  if (res.status < 200 || res.status >= 300) throw new Error(`worker returned HTTP ${res.status}`);
+  const parsed = StageResult.parse(JSON.parse(res.text));
   if (parsed.input_hash !== jobInputHash(job)) throw new Error("worker result input hash does not match the submitted job");
   return parsed;
 }
@@ -97,7 +121,10 @@ export async function runStage(job: Job): Promise<StageResult> {
       return await callWorker(job);
     } catch (e) {
       const recorded = loadRecorded(hash);
-      if (recorded) return recorded;
+      if (recorded) {
+        const why = `the live EDA worker failed (${(e as Error).message}); this is a recorded real run with identical inputs, not a run made now`;
+        return { ...recorded, findings: [...recorded.findings, { severity: "warning", code: "WORKER_FAILED_RECORDED_USED", message: why, tool: "runner" }] };
+      }
       return unavailable(job, `EDA worker unreachable or returned an invalid result (${(e as Error).message})`);
     }
   }

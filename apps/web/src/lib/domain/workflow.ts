@@ -63,7 +63,9 @@ export const TRANSITIONS: Record<WorkflowState, WorkflowState[]> = {
   PACKAGE_EXPORTED: ["PACKAGE_EXPORTED", "RELEASE_REVIEW_REQUIRED", "RTL_GENERATING", "RTL_LINTING", "REQUIREMENTS_IN_PROGRESS"],
   SUBMITTED: ["PROVIDER_ACCEPTED", "FAILED"],
   PROVIDER_ACCEPTED: [],
-  FAILED: ["RTL_GENERATING", "RTL_LINTING", "REPAIR_REQUIRED", "REQUIREMENTS_IN_PROGRESS", "CANCELLED"],
+  // A failed layout does not invalidate passing RTL checks: release review stays possible, and the
+  // policy checklist decides (an RTL-only package discloses the failure; a physical one is blocked).
+  FAILED: ["RTL_GENERATING", "RTL_LINTING", "REPAIR_REQUIRED", "PHYSICAL_DESIGN_RUNNING", "RELEASE_REVIEW_REQUIRED", "REQUIREMENTS_IN_PROGRESS", "CANCELLED"],
   CANCELLED: [],
 };
 

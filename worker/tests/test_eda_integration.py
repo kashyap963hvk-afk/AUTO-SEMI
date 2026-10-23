@@ -2,6 +2,7 @@
 variant must be caught by simulation and by formal (spec Phase 3/4 exit criteria)."""
 
 import json
+import os
 import shutil
 from pathlib import Path
 
@@ -101,9 +102,18 @@ def test_physical_blocked_without_constraints():
     assert r.findings[0].code == "TIMING_CONSTRAINTS_INCOMPLETE"
 
 
-def test_physical_blocked_without_tool():
-    r = run_job(job("physical", GOOD_RTL, clock_period_ns=20, constraints_approved=True, platform="sky130hd"))
+def test_physical_blocked_without_tool(monkeypatch):
+    for var in ("ORFS_FLOW_HOME", "ORFS_OPENROAD", "ORFS_YOSYS", "ORFS_KLAYOUT"):
+        monkeypatch.delenv(var, raising=False)
+    j = job("physical", GOOD_RTL, clock_period_ns=20, constraints_approved=True, platform="sky130hd")
+    j = j.model_copy(update={"files": {**j.files, "constraints/approved.sdc": "create_clock -period 20 [get_ports clk]\n"}})
+    r = run_job(j)
     assert r.status.value == "BLOCKED_TOOL_UNAVAILABLE"
+
+
+def test_physical_blocked_without_sdc_file():
+    r = run_job(job("physical", GOOD_RTL, clock_period_ns=20, constraints_approved=True, platform="sky130hd"))
+    assert r.status.value == "BLOCKED_MISSING_CONSTRAINTS"
 
 
 def test_pdr_fallback_proves_hard_case():
@@ -125,3 +135,18 @@ def test_unrolled_engine_proves_hard_case_quickly():
     r = run_job(j)
     assert r.status.value == "PASS" and r.formal_status.value == "PROVED", r.summary
     assert r.metrics["verdict_engine"] == "smtbmc --unroll z3"
+
+
+@pytest.mark.skipif(not os.environ.get("ORFS_FLOW_HOME"), reason="OpenROAD Flow Scripts not configured (set ORFS_* variables)")
+def test_real_rtl_to_gds_small_fifo():
+    """Real ORFS run on sky130hd: must produce a GDS and pass every required sign-off check, or fail loudly."""
+    j = job("physical", GOOD_RTL, clock_period_ns=10, constraints_approved=True, platform="sky130hd", core_utilization=40, place_density=0.6, core_margin_um=4.0, drc_feol=True)
+    sdc = "current_design sync_fifo\ncreate_clock -name clk -period 10 [get_ports clk]\n"
+    j = j.model_copy(update={"parameters": {"WIDTH": 8, "DEPTH": 16}, "files": {**j.files, "constraints/approved.sdc": sdc}, "limits": j.limits.model_copy(update={"timeout_s": 2400, "memory_mb": 8192})})
+    r = run_job(j)
+    checks = r.metrics.get("checks", {})
+    assert checks.get("flow") == "PASS", r.summary
+    assert any(a.path.endswith("6_final.gds") and a.size > 100_000 for a in r.artifacts)
+    assert checks["lvs"] == "PASS" and checks["sta_setup"] == "PASS" and checks["klayout_drc"] == "PASS", checks
+    assert checks["klayout_drc_feol"] == "PASS" and checks["multi_corner_sta"] == "NOT_RUN"
+    assert r.status.value == "PASS"

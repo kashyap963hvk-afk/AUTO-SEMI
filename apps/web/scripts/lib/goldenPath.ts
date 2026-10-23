@@ -136,9 +136,15 @@ export async function goldenPath(page: Page, base: string, h: Hooks): Promise<{ 
   await clickText("Approve these constraints");
   await page.waitForSelector("text=Approved by A. Engineer");
   await clickText("Run physical design");
-  await page.waitForSelector("text=BLOCKED_TOOL_UNAVAILABLE");
+  // Without ORFS the stage must say BLOCKED; with ORFS it must show the checks as run (PASS or FAIL).
+  await page.waitForSelector("text=/BLOCKED_TOOL_UNAVAILABLE|Sign-off checks \\(as run\\)/", { timeout: 3_600_000 });
   await smoothScroll(700);
-  await h.caption("Honesty check: OpenROAD and PDK collateral aren't installed, so layout is reported as BLOCKED, never as a fake GDS.");
+  const physicalBlocked = (await page.locator("text=BLOCKED_TOOL_UNAVAILABLE").count()) > 0;
+  await h.caption(
+    physicalBlocked
+      ? "Honesty check: OpenROAD and PDK collateral aren't installed, so layout is reported as BLOCKED, never as a fake GDS."
+      : "Layout ran for real. Every sign-off check is shown as the tools reported it: PASS, FAIL or NOT RUN.",
+  );
   await pause(4500);
   await h.shot("physical-blocked");
 

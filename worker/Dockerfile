@@ -14,6 +14,12 @@ RUN git clone --depth 1 --branch yosys-0.33 https://github.com/YosysHQ/sby.git /
  && make -C /opt/sby install PREFIX=/usr/local \
  && rm -rf /opt/sby
 
+# Optional physical-design toolchain (OpenROAD + ORFS sky130hd + KLayout): docker build --build-arg WITH_ORFS=1 .
+ARG WITH_ORFS=0
+COPY scripts/install-orfs.sh /tmp/install-orfs.sh
+RUN if [ "$WITH_ORFS" = "1" ]; then apt-get update && apt-get install -y --no-install-recommends curl bzip2 && SUDO= PREFIX=/opt bash /tmp/install-orfs.sh && rm -rf /var/lib/apt/lists/*; fi
+ENV ORFS_FLOW_HOME=/opt/orfs/flow ORFS_OPENROAD=/opt/eda/bin/openroad ORFS_YOSYS=/opt/eda/bin/yosys ORFS_KLAYOUT=/usr/bin/klayout
+
 RUN useradd --create-home --uid 10001 eda
 WORKDIR /app
 COPY pyproject.toml ./

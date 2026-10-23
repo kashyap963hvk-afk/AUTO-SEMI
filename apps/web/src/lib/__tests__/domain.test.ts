@@ -110,6 +110,22 @@ describe("release policy", () => {
     const items = buildChecklist({ ...base, policy: "open-pdk-physical-prototype", latestRuns: { lint: pass("lint"), simulation: pass("simulation"), formal: pass("formal"), synthesis: pass("synthesis") } });
     expect(blockers(items).map((i) => i.id)).toEqual(["constraints.sdc", "run.physical"]);
   });
+  it("a failed layout blocks the physical policy but is disclosed, not hidden, in an RTL-only package", () => {
+    const physFail = { source_revision: 1, result: { status: "FAIL", summary: "failing checks: klayout_drc", execution: { mode: "live-worker" }, metrics: { checks: { klayout_drc: "FAIL", klayout_drc_feol: "PASS", multi_corner_sta: "NOT_RUN" } } } as never };
+    const runs = { lint: pass("lint"), simulation: pass("simulation"), formal: pass("formal"), synthesis: pass("synthesis"), physical: physFail };
+    const rtl = buildChecklist({ ...base, policy: "rtl-prototype", latestRuns: runs });
+    expect(blockers(rtl)).toEqual([]);
+    expect(rtl.find((i) => i.id === "run.physical")!.detail).toContain("reported FAIL: failing checks: klayout_drc");
+    const phys = buildChecklist({ ...base, constraintsApproved: true, policy: "open-pdk-physical-prototype", latestRuns: runs });
+    expect(blockers(phys).map((i) => `${i.id}:${i.status}`)).toEqual(["run.physical:fail"]);
+    expect(phys.find((i) => i.id === "phys.feol_drc")!.status).toBe("pass");
+    expect(phys.find((i) => i.id === "phys.multi_corner")!.status).toBe("missing");
+  });
+  it("lets a FAILED layout go to release review only through the checklist gate", () => {
+    expect(() => assertTransition("FAILED", "RELEASE_REVIEW_REQUIRED")).not.toThrow();
+    expect(() => assertTransition("FAILED", "PHYSICAL_DESIGN_RUNNING")).not.toThrow();
+    expect(() => assertTransition("FAILED", "RELEASE_APPROVED")).toThrow(TransitionError);
+  });
   it("computes honest result levels", () => {
     const lvl = resultLevel({ ...base, releaseApproved: false, latestRuns: { lint: pass("lint"), simulation: pass("simulation"), formal: pass("formal"), synthesis: pass("synthesis") } });
     expect(lvl.level).toBe(3);

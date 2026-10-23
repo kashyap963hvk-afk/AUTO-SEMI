@@ -1,0 +1,57 @@
+OpenROAD 2.0-12381-g01bba3695 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO] Deleted 0 routing obstructions
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0008] extracting parasitics of sync_fifo ...
+[INFO RCX-0435] Reading extraction model file $ORFS/flow/platforms/sky130hd/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation sync_fifo (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 14566 rc segments
+[INFO RCX-0439] Coupling Cap extraction sync_fifo ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0043] 30771 wires to be extracted
+[INFO RCX-0442] 54% completion -- 16710 wires have been extracted
+[INFO RCX-0442] 100% completion -- 30771 wires have been extracted
+[INFO RCX-0045] Extract 3219 nets, 17782 rsegs, 17782 caps, 28364 ccs
+[INFO RCX-0015] Finished extracting sync_fifo.
+[INFO RCX-0016] Writing SPEF ...
+[INFO RCX-0443] 3219 nets finished
+[INFO RCX-0017] Finished writing SPEF ...
+[INFO PSM-0022] Using 1.800V for VDD
+[WARNING PSM-0016] Voltage pad location (VSRC) file not specified, defaulting pad location to checkerboard pattern on core area.
+[WARNING PSM-0017] X direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0018] Y direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0065] VSRC location not specified, using default checkerboard pattern with one VDD every size bumps in x-direction and one in two bumps in the y-direction
+[INFO PSM-0076] Setting metal node density to be standard cell height times 5.
+[WARNING PSM-0030] VSRC location at (93.530um, 93.200um) and size 10.000um, is not located on an existing power stripe node. Moving to closest node at (82.800um, 84.320um).
+[INFO PSM-0031] Number of PDN nodes on net VDD = 6304.
+[INFO PSM-0064] Number of voltage sources = 1.
+[INFO PSM-0040] All PDN stripes on net VDD are connected.
+########## IR report #################
+Corner: default
+Worstcase voltage: 1.79e+00 V
+Average IR drop  : 5.52e-03 V
+Worstcase IR drop: 7.24e-03 V
+######################################
+[INFO PSM-0022] Using 0.000V for VSS
+[WARNING PSM-0016] Voltage pad location (VSRC) file not specified, defaulting pad location to checkerboard pattern on core area.
+[WARNING PSM-0017] X direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0018] Y direction bump pitch is not specified, defaulting to 140um.
+[WARNING PSM-0065] VSRC location not specified, using default checkerboard pattern with one VDD every size bumps in x-direction and one in two bumps in the y-direction
+[INFO PSM-0076] Setting metal node density to be standard cell height times 5.
+[INFO PSM-0031] Number of PDN nodes on net VSS = 6876.
+[INFO PSM-0064] Number of voltage sources = 1.
+[INFO PSM-0040] All PDN stripes on net VSS are connected.
+########## IR report #################
+Corner: default
+Worstcase voltage: 6.36e-03 V
+Average IR drop  : 4.88e-03 V
+Worstcase IR drop: 6.36e-03 V
+######################################
+
+==========================================================================
+finish report_design_area
+--------------------------------------------------------------------------
+Design area 49900 u^2 48% utilization.
+Elapsed time: 0:13.64[h:]min:sec. CPU time: user 8.51 sys 3.93 (91%). Peak memory: 1099796KB.

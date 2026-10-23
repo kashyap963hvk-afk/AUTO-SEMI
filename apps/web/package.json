@@ -1,8 +1,8 @@
 {
-  "name": "devin-ai-vlsi-web",
+  "name": "auto-vlsi-web",
   "version": "0.1.0",
   "private": true,
-  "description": "Devin AI for VLSI: guided, auditable digital-ASIC design workflow (web app + API).",
+  "description": "Auto-VLSI: guided, auditable digital-ASIC design workflow (web app + API).",
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",

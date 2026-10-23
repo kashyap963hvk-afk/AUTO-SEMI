@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Devin AI for VLSI",
+  title: "Auto-VLSI",
   description: "Describe the chip you need in plain English. Get a reviewed spec, verified RTL, real tool evidence and a release package for expert review.",
 };
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Link href="/" className="brand">
             <span className="brand-mark">AI</span>
             <span>
-              Devin AI for VLSI <small>· digital ASIC assistant</small>
+              Auto-VLSI <small>· digital ASIC assistant</small>
             </span>
           </Link>
           <nav className="nav">

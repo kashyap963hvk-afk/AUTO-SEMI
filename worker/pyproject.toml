@@ -1,7 +1,7 @@
 [project]
 name = "devin-vlsi-worker"
 version = "0.1.0"
-description = "Isolated EDA worker for Devin AI for VLSI: runs allowlisted tool adapters and returns machine-readable evidence."
+description = "Isolated EDA worker for Auto-VLSI: runs allowlisted tool adapters and returns machine-readable evidence."
 requires-python = ">=3.11"
 dependencies = [
   "cocotb==2.1.0",

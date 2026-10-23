@@ -1,0 +1,121 @@
+{
+ "schema_version": "1.0",
+ "job_id": "rec-simulation",
+ "stage": "simulation",
+ "status": "PASS",
+ "summary": "7/7 tests passed",
+ "input_hash": "3cbf9c0dbcbc1387577365b7c7cba5e3cce26abd6ff6c79c84e1bc26d25e9abb",
+ "started_at": "2026-10-23T13:10:38+00:00",
+ "finished_at": "2026-10-23T13:10:39+00:00",
+ "duration_s": 1.162,
+ "execution": {
+  "mode": "live-worker",
+  "worker_version": "0.1.0",
+  "host_os": "Linux 6.18.44-fc-v153",
+  "python": "3.13.16",
+  "tool_versions": {
+   "cocotb+icarus": "cocotb 2.1.0 / icarus 12.0"
+  }
+ },
+ "steps": [
+  {
+   "tool": "cocotb+icarus",
+   "version": "cocotb 2.1.0 / icarus 12.0",
+   "command": [
+    "/usr/bin/python3",
+    "-m",
+    "devin_vlsi_worker.cocotb_entry",
+    "sim_config.json"
+   ],
+   "exit_code": 0,
+   "status": "PASS",
+   "duration_s": 1.162,
+   "stdout": "     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.13.so.1.0'\n     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/usr/local/lib/python3.13/dist-packages/cocotb/simulator.cpython-313-x86_64-linux-gnu.so'\n     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.13.8 interpreter at /usr/bin/python3\n     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered\n     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 20261023\n     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /usr/local/lib/python3.13/dist-packages/cocotb\n     0.00ns INFO     cocotb.initialize                  Running on Icarus Verilog version 12.0 (stable)\n     0.00ns INFO     cocotb.regression                  Running tests\n     0.00ns INFO     cocotb.regression                  running test_sync_fifo.test_reset_state (1/7)\n                                                            After reset the FIFO is empty, not full, and reports zero items.\n    25.00ns INFO     cocotb.regression                  test_sync_fifo.test_reset_state passed\n    25.00ns INFO     cocotb.regression                  running test_sync_fifo.test_single_write_read (2/7)\n                                                            One item written is the item read back.\n    70.00ns INFO     cocotb.regression                  test_sync_fifo.test_single_write_read passed\n    70.00ns INFO     cocotb.regression                  running test_sync_fifo.test_order_fill_drain (3/7)\n                                                            Filling to capacity and draining preserves order and flags.\n   735.00ns INFO     cocotb.regression                  test_sync_fifo.test_order_fill_drain passed\n   735.00ns INFO     cocotb.regression                  running test_sync_fifo.test_overflow_ignored (4/7)\n                                                            A write while full (without a read) is ignored and stored data is kept.\n  1410.00ns INFO     cocotb.regression                  test_sync_fifo.test_overflow_ignored passed\n  1410.00ns INFO     cocotb.regression                  running test_sync_fifo.test_underflow_ignored (5/7)\n                                                            A read while empty is ignored and does not corrupt later traffic.\n  1465.00ns INFO     cocotb.regression                  test_sync_fifo.test_underflow_ignored passed\n  1465.00ns INFO     cocotb.regression                  running test_sync_fifo.test_simultaneous_read_write (6/7)\n                                                            Same-cycle read and write follow the documented rules when empty, partly full and full.\n  2140.01ns INFO     cocotb.regression                  test_sync_fifo.test_simultaneous_read_write passed\n  2140.01ns INFO     cocotb.regression                  running test_sync_fifo.test_random_scoreboard (7/7)\n                                                            Seeded random traffic checked cycle by cycle against the reference model.\n  2140.01ns INFO     cocotb.sync_fifo                   random seed 20261023\n 22165.01ns INFO     cocotb.regression                  test_sync_fifo.test_random_scoreboard passed\n 22165.01ns INFO     cocotb.regression                  *****************************************************************************************************\n                                                        ** TEST                                         STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **\n                                                        *****************************************************************************************************\n                                                        ** test_sync_fifo.test_reset_state               PASS          25.00           0.00      34747.90  **\n                                                        ** test_sync_fifo.test_single_write_read         PASS          45.00           0.00     107031.49  **\n                                                        ** test_sync_fifo.test_order_fill_drain          PASS         665.00           0.00     133837.04  **\n                                                        ** test_sync_fifo.test_overflow_ignored          PASS         675.00           0.00     138683.43  **\n                                                        ** test_sync_fifo.test_underflow_ignored         PASS          55.00           0.00     126337.16  **\n                                                        ** test_sync_fifo.test_simultaneous_read_write   PASS         675.00           0.00     139982.13  **\n                                                        ** test_sync_fifo.test_random_scoreboard         PASS       20025.00           0.23      86080.37  **\n                                                        *****************************************************************************************************\n                                                        ** TESTS=7 PASS=7 FAIL=0 SKIP=0                             22165.01           0.25      88203.77  **\n                                                        *****************************************************************************************************\ncocotb results file: $RUN_DIR/results.xml\n",
+   "stderr": "",
+   "truncated": false
+  }
+ ],
+ "findings": [],
+ "tests": [
+  {
+   "name": "test_reset_state",
+   "status": "PASS",
+   "covers": [
+    "REQ-RST-001",
+    "REQ-FUNC-002"
+   ],
+   "duration_s": 0.001,
+   "message": null
+  },
+  {
+   "name": "test_single_write_read",
+   "status": "PASS",
+   "covers": [
+    "REQ-FUNC-001"
+   ],
+   "duration_s": 0,
+   "message": null
+  },
+  {
+   "name": "test_order_fill_drain",
+   "status": "PASS",
+   "covers": [
+    "REQ-FUNC-001",
+    "REQ-FUNC-002",
+    "REQ-FUNC-003",
+    "REQ-FUNC-004"
+   ],
+   "duration_s": 0.005,
+   "message": null
+  },
+  {
+   "name": "test_overflow_ignored",
+   "status": "PASS",
+   "covers": [
+    "REQ-FUNC-003"
+   ],
+   "duration_s": 0.005,
+   "message": null
+  },
+  {
+   "name": "test_underflow_ignored",
+   "status": "PASS",
+   "covers": [
+    "REQ-FUNC-004"
+   ],
+   "duration_s": 0,
+   "message": null
+  },
+  {
+   "name": "test_simultaneous_read_write",
+   "status": "PASS",
+   "covers": [
+    "REQ-FUNC-005"
+   ],
+   "duration_s": 0.005,
+   "message": null
+  },
+  {
+   "name": "test_random_scoreboard",
+   "status": "PASS",
+   "covers": [
+    "REQ-FUNC-001",
+    "REQ-FUNC-002",
+    "REQ-FUNC-003",
+    "REQ-FUNC-004",
+    "REQ-FUNC-005"
+   ],
+   "duration_s": 0.233,
+   "message": null
+  }
+ ],
+ "properties": [],
+ "formal_status": null,
+ "metrics": {},
+ "artifacts": [],
+ "limitations": [
+  "Simulation covers only the listed tests and seed; it is not exhaustive.",
+  "Code/functional coverage collection is not enabled on this path; no coverage figures are reported.",
+  "Waveforms are not captured for passing or failing tests on this path."
+ ]
+}

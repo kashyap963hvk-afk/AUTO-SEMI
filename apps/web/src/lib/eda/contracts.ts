@@ -76,7 +76,7 @@ export const StageResult = z.object({
   ),
   formal_status: FormalStatus.nullable().optional(),
   metrics: z.record(z.unknown()),
-  artifacts: z.array(z.object({ path: z.string(), sha256: z.string(), size: z.number(), content: z.string().nullable().optional() })),
+  artifacts: z.array(z.object({ path: z.string(), sha256: z.string(), size: z.number(), content: z.string().nullable().optional(), encoding: z.string().nullable().optional() })),
   limitations: z.array(z.string()),
 });
 export type StageResult = z.infer<typeof StageResult>;

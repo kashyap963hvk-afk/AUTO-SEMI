@@ -1,0 +1,71 @@
+{
+ "schema_version": "1.0",
+ "job_id": "rec-lint",
+ "stage": "lint",
+ "status": "PASS",
+ "summary": "lint: PASS (0 error(s), 0 warning(s))",
+ "input_hash": "2f961727298b524a6ff650609f5c7ed928529678326aaabc5d7cf3c1a245e67e",
+ "started_at": "2026-10-23T13:09:09+00:00",
+ "finished_at": "2026-10-23T13:09:09+00:00",
+ "duration_s": 0.135,
+ "execution": {
+  "mode": "live-worker",
+  "worker_version": "0.1.0",
+  "host_os": "Linux 6.18.44-fc-v153",
+  "python": "3.13.16",
+  "tool_versions": {
+   "verilator": "5.020",
+   "yosys": "0.33"
+  }
+ },
+ "steps": [
+  {
+   "tool": "verilator",
+   "version": "5.020",
+   "command": [
+    "verilator",
+    "--lint-only",
+    "-Wall",
+    "--top-module",
+    "sync_fifo",
+    "-Iformal",
+    "-GDEPTH=4",
+    "-GWIDTH=8",
+    "rtl/sync_fifo.sv"
+   ],
+   "exit_code": 0,
+   "status": "PASS",
+   "duration_s": 0.112,
+   "stdout": "",
+   "stderr": "",
+   "truncated": false
+  },
+  {
+   "tool": "yosys",
+   "version": "0.33",
+   "command": [
+    "yosys",
+    "-q",
+    "-l",
+    "yosys_elab.log",
+    "-p",
+    "read_verilog -sv -Iformal rtl/sync_fifo.sv; chparam -set DEPTH 4 -set WIDTH 8 sync_fifo; hierarchy -check -top sync_fifo; proc; check -assert"
+   ],
+   "exit_code": 0,
+   "status": "PASS",
+   "duration_s": 0.023,
+   "stdout": "",
+   "stderr": "",
+   "truncated": false
+  }
+ ],
+ "findings": [],
+ "tests": [],
+ "properties": [],
+ "formal_status": null,
+ "metrics": {},
+ "artifacts": [],
+ "limitations": [
+  "Lint covers the configured Verilator -Wall and Yosys check policies only; it does not prove functional correctness."
+ ]
+}

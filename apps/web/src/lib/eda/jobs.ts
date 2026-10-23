@@ -45,6 +45,10 @@ export function buildJob(stage: Stage, jobId: string, src: SourceFiles, cfg: Fif
         ...base,
         files: { ...rtl, ...(src["constraints/approved.sdc"] ? { "constraints/approved.sdc": src["constraints/approved.sdc"] } : {}) },
         options: {
+          core_utilization: 40,
+          place_density: 0.6,
+          core_margin_um: 4,
+          drc_feol: true,
           platform: phys?.platform ?? null,
           clock_period_ns: phys?.clockMhz ? Number((1000 / phys.clockMhz).toFixed(3)) : null,
           constraints_approved: Boolean(phys?.constraintsApproved),
