@@ -1,0 +1,7 @@
+.data/
+.next/
+node_modules/
+evidence/.job-*
+*.tsbuildinfo
+.env*.local
+.env

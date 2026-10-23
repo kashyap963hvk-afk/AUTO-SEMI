@@ -1,0 +1,53 @@
+SBY  4:54:52 [fifo_prove] Removing directory '$RUN_DIR/fifo_prove'.
+SBY  4:54:52 [fifo_cover] Removing directory '$RUN_DIR/fifo_cover'.
+SBY  4:54:52 [fifo_cover] Copy '$RUN_DIR/sync_fifo.sv' to '$RUN_DIR/fifo_cover/src/sync_fifo.sv'.
+SBY  4:54:52 [fifo_cover] Copy '$RUN_DIR/sync_fifo_props.svh' to '$RUN_DIR/fifo_cover/src/sync_fifo_props.svh'.
+SBY  4:54:52 [fifo_cover] engine_0: smtbmc z3
+SBY  4:54:52 [fifo_cover] base: starting process "cd fifo_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  4:54:52 [fifo_cover] base: finished (returncode=0)
+SBY  4:54:52 [fifo_cover] prep: starting process "cd fifo_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  4:54:52 [fifo_cover] prep: finished (returncode=0)
+SBY  4:54:52 [fifo_cover] smt2: starting process "cd fifo_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  4:54:52 [fifo_cover] smt2: finished (returncode=0)
+SBY  4:54:52 [fifo_cover] engine_0: starting process "cd fifo_cover; yosys-smtbmc -s z3 --presat -c --noprogress -t 40  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Solver: z3
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Reached cover statement at sync_fifo_props.svh:71.87-71.100 ($cover$sync_fifo_props.svh:71$307) in step 2.
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 9..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 10..
+SBY  4:54:52 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 11..
+SBY  4:54:53 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 12..
+SBY  4:54:53 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 13..
+SBY  4:54:53 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 14..
+SBY  4:54:53 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 15..
+SBY  4:54:53 [fifo_cover] engine_0: ##   0:00:00  Checking cover reachability in step 16..
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:01  Checking cover reachability in step 17..
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:02  Reached cover statement at sync_fifo_props.svh:70.41-70.54 ($cover$sync_fifo_props.svh:70$306) in step 17.
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  4:54:54 [fifo_cover] engine_0: ##   0:00:02  Status: passed
+SBY  4:54:54 [fifo_cover] engine_0: finished (returncode=0)
+SBY  4:54:54 [fifo_cover] engine_0: Status returned by engine: pass
+SBY  4:54:54 [fifo_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  4:54:54 [fifo_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  4:54:54 [fifo_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY  4:54:54 [fifo_cover] summary: cover trace: fifo_cover/engine_0/trace0.vcd
+SBY  4:54:54 [fifo_cover] summary:   reached cover statement sync_fifo.$cover$sync_fifo_props.svh:71$307 at sync_fifo_props.svh:71.87-71.100 in step 2
+SBY  4:54:54 [fifo_cover] summary: cover trace: fifo_cover/engine_0/trace1.vcd
+SBY  4:54:54 [fifo_cover] summary:   reached cover statement sync_fifo.$cover$sync_fifo_props.svh:70$306 at sync_fifo_props.svh:70.41-70.54 in step 17
+SBY  4:54:54 [fifo_cover] DONE (PASS, rc=0)

@@ -1,0 +1,96 @@
+SBY  4:55:05 [fifo_prove] Removing directory '$RUN_DIR/fifo_prove'.
+SBY  4:55:05 [fifo_prove] Copy '$RUN_DIR/sync_fifo.sv' to '$RUN_DIR/fifo_prove/src/sync_fifo.sv'.
+SBY  4:55:05 [fifo_prove] Copy '$RUN_DIR/sync_fifo_props.svh' to '$RUN_DIR/fifo_prove/src/sync_fifo_props.svh'.
+SBY  4:55:05 [fifo_prove] engine_0: smtbmc z3
+SBY  4:55:05 [fifo_prove] base: starting process "cd fifo_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  4:55:05 [fifo_prove] base: finished (returncode=0)
+SBY  4:55:05 [fifo_prove] prep: starting process "cd fifo_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  4:55:05 [fifo_prove] prep: finished (returncode=0)
+SBY  4:55:05 [fifo_prove] smt2: starting process "cd fifo_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  4:55:05 [fifo_prove] smt2: finished (returncode=0)
+SBY  4:55:05 [fifo_prove] engine_0.basecase: starting process "cd fifo_prove; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  4:55:05 [fifo_prove] engine_0.induction: starting process "cd fifo_prove; yosys-smtbmc -s z3 --presat -i --noprogress -t 20  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Solver: z3
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Solver: z3
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 20..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 19..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 18..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 17..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 16..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 15..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 14..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 13..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 12..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 11..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 6..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 6..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 10..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 9..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 7..
+SBY  4:55:05 [fifo_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 7..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 8..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 7..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY  4:55:05 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 3..
+SBY  4:55:06 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 2..
+SBY  4:55:06 [fifo_prove] engine_0.induction: ##   0:00:00  Trying induction in step 1..
+SBY  4:55:06 [fifo_prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 8..
+SBY  4:55:06 [fifo_prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 8..
+SBY  4:55:06 [fifo_prove] engine_0.basecase: ##   0:00:01  Checking assumptions in step 9..
+SBY  4:55:06 [fifo_prove] engine_0.basecase: ##   0:00:01  Checking assertions in step 9..
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:01  Trying induction in step 0..
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Temporal induction failed!
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Assert failed in sync_fifo: sync_fifo_props.svh:26.31-27.41 ($assert$sync_fifo_props.svh:26$297)
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Writing trace to VCD file: engine_0/trace_induct.vcd
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace_induct_tb.v
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Writing trace to constraints file: engine_0/trace_induct.smtc
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace_induct.yw
+SBY  4:55:07 [fifo_prove] engine_0.induction: ##   0:00:02  Status: failed
+SBY  4:55:07 [fifo_prove] engine_0.induction: finished (returncode=1)
+SBY  4:55:07 [fifo_prove] engine_0.induction: Status returned by engine for induction: FAIL
+SBY  4:55:07 [fifo_prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 10..
+SBY  4:55:07 [fifo_prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 10..
+SBY  4:55:08 [fifo_prove] engine_0.basecase: ##   0:00:02  Checking assumptions in step 11..
+SBY  4:55:08 [fifo_prove] engine_0.basecase: ##   0:00:02  Checking assertions in step 11..
+SBY  4:55:08 [fifo_prove] engine_0.basecase: ##   0:00:03  Checking assumptions in step 12..
+SBY  4:55:08 [fifo_prove] engine_0.basecase: ##   0:00:03  Checking assertions in step 12..
+SBY  4:55:09 [fifo_prove] engine_0.basecase: ##   0:00:04  Checking assumptions in step 13..
+SBY  4:55:09 [fifo_prove] engine_0.basecase: ##   0:00:04  Checking assertions in step 13..
+SBY  4:55:12 [fifo_prove] engine_0.basecase: ##   0:00:07  Checking assumptions in step 14..
+SBY  4:55:12 [fifo_prove] engine_0.basecase: ##   0:00:07  Checking assertions in step 14..
+SBY  4:55:15 [fifo_prove] engine_0.basecase: ##   0:00:10  Checking assumptions in step 15..
+SBY  4:55:15 [fifo_prove] engine_0.basecase: ##   0:00:10  Checking assertions in step 15..
+SBY  4:55:19 [fifo_prove] engine_0.basecase: ##   0:00:13  Checking assumptions in step 16..
+SBY  4:55:19 [fifo_prove] engine_0.basecase: ##   0:00:13  Checking assertions in step 16..
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  BMC failed!
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  Assert failed in sync_fifo: sync_fifo_props.svh:26.31-27.41 ($assert$sync_fifo_props.svh:26$297)
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  Writing trace to VCD file: engine_0/trace.vcd
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  Writing trace to constraints file: engine_0/trace.smtc
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  4:55:22 [fifo_prove] engine_0.basecase: ##   0:00:17  Status: failed
+SBY  4:55:22 [fifo_prove] engine_0.basecase: finished (returncode=1)
+SBY  4:55:22 [fifo_prove] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY  4:55:22 [fifo_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:17 (17)
+SBY  4:55:22 [fifo_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:19 (19)
+SBY  4:55:22 [fifo_prove] summary: engine_0 (smtbmc z3) returned FAIL for basecase
+SBY  4:55:22 [fifo_prove] summary: engine_0 (smtbmc z3) returned FAIL for induction
+SBY  4:55:22 [fifo_prove] summary: counterexample trace [basecase]: fifo_prove/engine_0/trace.vcd
+SBY  4:55:22 [fifo_prove] summary:   failed assertion sync_fifo.$assert$sync_fifo_props.svh:26$297 at sync_fifo_props.svh:26.31-27.41 in step 16
+SBY  4:55:22 [fifo_prove] summary: counterexample trace [induction]: fifo_prove/engine_0/trace_induct.vcd
+SBY  4:55:22 [fifo_prove] summary:   failed assertion sync_fifo.$assert$sync_fifo_props.svh:26$297 at sync_fifo_props.svh:26.31-27.41 in step 0
+SBY  4:55:22 [fifo_prove] DONE (FAIL, rc=2)

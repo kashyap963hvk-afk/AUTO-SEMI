@@ -1,0 +1,17 @@
+# Threat model (first release)
+
+| Asset / boundary | Threat | Control (where) |
+|---|---|---|
+| EDA worker host | User-controlled HDL, test code or options run arbitrary commands | Typed jobs only (`models.py`); executable allowlist and argv arrays, never a shell (`sandbox.py`); identifier/integer-only parameters; path validation rejecting absolute paths and `..`; materialisation confined to the run directory; container runs non-root, read-only, `cap_drop: ALL`, no-new-privileges, pids/memory/CPU limits, internal-only network (`docker-compose.yml`). |
+| Worker resources | Runaway simulation or solver | Wall-clock timeout with process-group kill, RLIMIT_AS/CPU/FSIZE, output truncation, concurrency semaphore (`sandbox.py`, `api.py`). Observed: z3 out-of-memory under the 2 GB cap is reported as `ERROR`, never as a pass. |
+| Worker API | Unauthenticated job submission | Bearer token (constant-time compare). Refuses to accept jobs if `WORKER_TOKEN` is unset. 2 MB input cap. |
+| Secrets | Keys leaking into tools, logs, DB, prompts or the browser | Worker scrubs the environment before every tool run (test). Logs are redacted (test). Provider keys are referenced only by env-var name, restricted to `DEVIN_AI_*` so other server variables like `DATABASE_URL` cannot be read (test). DB/audit/execution rows contain no key material (acceptance test 23). The browser only sees whether a key is set. |
+| Model endpoints (SSRF) | User-entered URL reaches cloud metadata or the internal network | http(s) only, no userinfo, metadata hosts/IPs (incl. IPv4-mapped IPv6) always blocked, link-local blocked, private/loopback only for an explicit local/private connection, DNS re-resolved before every call, `redirect: "manual"` (`endpointSafety.ts`, tests). |
+| Data egress | Proprietary RTL/spec sent to a third party | Per-project `local_only` / `approved_providers_only` / `user_authorized_remote` policy checked before every call. Fallback routes must pass the same check, so `local_only` can never fall back to a remote provider (acceptance test 22). |
+| Prompt injection | Description, logs or RTL comments instruct the model to change policy | Untrusted content is wrapped in `<data>` with a standing instruction. Outputs are schema-validated. Extracted values must quote the user's text verbatim or they are dropped. Agents have no tools and no state-changing power, and every output is a proposal the user confirms. |
+| Verification integrity | AI weakens tests or marks failures as passes | Pass/fail comes only from exit codes and parsed reports. Tests and properties are checked-in assets the repair path cannot change. Repair regenerates RTL only. Bounded at 3 rounds. Formal statuses keep bounded results distinct from proofs. |
+| Multi-tenant data | One session reads or alters another's project | All reads are owner-scoped. Another user's project looks the same as a missing one (404, acceptance test 13). |
+| Release package | Tampered or stale artifacts presented as reviewed | SHA-256 manifest and checksums, a verification endpoint (acceptance test 12), stale-revision detection at approval and export, mandatory human sign-off. Status text says "not submitted, not accepted". |
+| Archive handling | Zip-slip on verification upload | Entries with absolute paths or `..` are reported. Nothing is extracted to disk. |
+
+Residual risks: the local session model is not real identity, so use OIDC before sharing a deployment. DNS is re-checked per call, but a TOCTOU window remains. Rate limiting is not implemented.

@@ -1,0 +1,1754 @@
+{
+ "0053b8d9b5d9b9e80f7368fc1b01a4f6bab27756cc6cd4e87c5e63560f670d41": {
+  "label": "synthesis W8 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 353 generic cells, 145 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:24:42+00:00"
+ },
+ "0108c20f3c0a66ead3fb090faf350021ded0f946a9cf218d9cf60670e52bf99d": {
+  "label": "lint W8 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:31+00:00"
+ },
+ "01b31f40f29fe58e6b8de7cd9c225552c1e5960810594dcef2c5dd5865c0fd8b": {
+  "label": "formal W32 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:57:20+00:00"
+ },
+ "020259ac492e81e0d01abb78788c0eab0be92d76440d9419f132c0167ed07793": {
+  "label": "simulation W32 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:28+00:00"
+ },
+ "027dadd956b26ccfd86da17aa91f3ced4fc80075de2b7856939c0edc193f0c4f": {
+  "label": "synthesis W16 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 598 generic cells, 273 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:53+00:00"
+ },
+ "02a0785dee0f02852068362ffb69aa69ad85f8429b51517cee06b02bc520b3ce": {
+  "label": "lint W8 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:17+00:00"
+ },
+ "0574705020f0836247d6c1c3c0ed386464473c5426f68e62909fc57ad144fa57": {
+  "label": "formal W16 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:13+00:00"
+ },
+ "0620d08191cb4f5be60c784369c028165cd136fbb0c36adc40d26effbfa4a3c7": {
+  "label": "synthesis W16 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 307 generic cells, 141 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:33+00:00"
+ },
+ "06a574dd018ea0f6ef395d49b4453c62a5892b5e08811f85167ac24b49948cd9": {
+  "label": "formal W8 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:36+00:00"
+ },
+ "072274b6ffd65209aa8d01c60337c531bd7e6913b0025037a0b13a6bd6e88029": {
+  "label": "synthesis W32 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 2181 generic cells, 1045 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:32:48+00:00"
+ },
+ "07af8fe09a0c04fc4c3643154e1890ed4e7d06ad2c4446ab00e6f9ce799a8692": {
+  "label": "formal W8 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:57+00:00"
+ },
+ "089e6e003a69615fc8b9f9d5b5694fd273711e35201201c8bbc633871d619bd8": {
+  "label": "synthesis W32 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 1087 generic cells, 525 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:32:38+00:00"
+ },
+ "08b4b5435d44ddedc7b4690c3a0c92bf56c1b43bfdde53f02dd756b9f0a787af": {
+  "label": "simulation W32 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:44+00:00"
+ },
+ "0933deaae70a0a89bb3059fe4c365d56491ac07fb6cf5ce136b2e30f8b06d04d": {
+  "label": "lint W8 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:22+00:00"
+ },
+ "0c4c7226b0a6a9221d26dbfa3053f759e170f611812d0ebe52657e5265b53af7": {
+  "label": "simulation W8 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:34+00:00"
+ },
+ "0cea95bc21b0456b11be1c7e08d93eafc9174ae30623ba097157cd8ad51d5f4e": {
+  "label": "synthesis W32 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 541 generic cells, 266 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:26+00:00"
+ },
+ "0e500bbff3c8dbfa5dab12a28a98a6fde227dd34ccb17c3b5fb35c2aeec5ab50": {
+  "label": "formal W16 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:10+00:00"
+ },
+ "0eafa1314fc5c76d5d1d66dd09595e777b678c99b31b0c73fcf03f224df871ce": {
+  "label": "simulation W8 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:29+00:00"
+ },
+ "0ed9da06b197e93f12ce1ee34f0da35376910284bb5c92015e1a8444e15f154f": {
+  "label": "formal W16 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:05+00:00"
+ },
+ "0fc32bbf1fcad91b17582643034646b350b9e254e22bdbb933b0ac8f40f578e0": {
+  "label": "simulation W8 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:13+00:00"
+ },
+ "1067e650ab7c0d2778c12770b5c01fcd13f1fb0f6be6771e94aa1005d740628a": {
+  "label": "synthesis W8 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 98 generic cells, 41 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:09+00:00"
+ },
+ "1116f37e87e8ed4f1180c2baad4742c161032db088cb91f9cf55686f93aefec7": {
+  "label": "synthesis W32 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 1090 generic cells, 525 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:32:21+00:00"
+ },
+ "14ce4831c8275c4663c65c7aac422a0cd6cdbf9c8a772ae59ae05d2351d535b4": {
+  "label": "simulation W32 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:47+00:00"
+ },
+ "150ff30d358b398caf0fb49363b9fa796978cb01f3779d76b56d26cbe61dff9a": {
+  "label": "synthesis W8 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 350 generic cells, 145 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:25+00:00"
+ },
+ "153307936180e0acf8e9196cfb9daa0759364d683a0b65c3a27e6c0804c15c74": {
+  "label": "lint W32 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:14+00:00"
+ },
+ "15e5a7a03d4428afdacfcd0158f94fc8b626fb1fc732d05a541367d36fe60602": {
+  "label": "simulation W16 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:18+00:00"
+ },
+ "1650c9c89ad451731fe13396243b60b8091a5a7f489cc946a278f0e83557efd8": {
+  "label": "simulation W16 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:19+00:00"
+ },
+ "1758b61bcd8f112d3c74ed01f783056e69fa23105faf358f2c639f2de99ef975": {
+  "label": "lint W16 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:39+00:00"
+ },
+ "17886bbb3545dbf2ff899e2419289e0820ba16bdf064d1f906f49c81b4ebf9dd": {
+  "label": "synthesis W16 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 1164 generic cells, 528 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:59+00:00"
+ },
+ "184ea3b30a9aa77870a2bcb6018f7f7e0fed9f5391321d6fdc032af6bcd1070a": {
+  "label": "synthesis W16 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 303 generic cells, 138 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:36+00:00"
+ },
+ "18d219e624c1e83a512d1dd1ae71cde09117a8a8e93eee230b0c15a2d0b8aed0": {
+  "label": "lint W32 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:18+00:00"
+ },
+ "18f3342360a4632956d37b361feffb29ddce075e19c8a86dca527ad667847a8a": {
+  "label": "simulation W8 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:10+00:00"
+ },
+ "195be094a5a8ddd3e6670593474ea845a91088dff5d2192249ce7682f6750c45": {
+  "label": "lint W16 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:28+00:00"
+ },
+ "199ea59ade940167808780d418ade30f89533cda94704515dadf1980b3f75bb6": {
+  "label": "synthesis W8 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 353 generic cells, 145 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:26+00:00"
+ },
+ "1a5362e420c5aa56d80f655e9ef80d9af0da0ee65fb2221bb52ea2a3df8d95b2": {
+  "label": "lint W8 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:10+00:00"
+ },
+ "1a824aeba16f1d2884991be058cab5293551739a640a25e77bc2b88bd936f9ef": {
+  "label": "synthesis W8 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 189 generic cells, 77 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:15+00:00"
+ },
+ "1b68a80426c56fa9140c2a9a8de34a30e9008d1a1ed32fcf6e55dc34d40f4995": {
+  "label": "synthesis W16 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 601 generic cells, 273 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:03+00:00"
+ },
+ "1c66180fe5ed77bf3b9e8936b7629ecc172873c86291444ff93a42741ab274b8": {
+  "label": "formal W16 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:56+00:00"
+ },
+ "1c85513dbbdbf5c5cf8c928cd23311da4766d1e283bb178a06b67f16e250bd71": {
+  "label": "synthesis W16 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 150 generic cells, 73 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:11+00:00"
+ },
+ "1cd56ec3a004c0692f828d0268c9ed7acd3619879c4b0699b1426569f990f365": {
+  "label": "formal W32 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:58+00:00"
+ },
+ "1de9f989fb147e0ec02dfdac2b87f199c1d5b415e1f6a57427c3d9bce42c70f2": {
+  "label": "synthesis W32 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 549 generic cells, 269 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:46+00:00"
+ },
+ "20734c8f2f76a954c7edbfc581b0c67b62642032222ee58d9051bd401c68fbbe": {
+  "label": "simulation W16 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:55+00:00"
+ },
+ "20fa55459522db414dd364e564852214015fac996913237187fdb414b2f34b92": {
+  "label": "synthesis W16 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 598 generic cells, 273 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:06+00:00"
+ },
+ "2132a8c66382b0c2fdce37da9dac632036d889a64325a42e6d4118c10e00639a": {
+  "label": "synthesis W8 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 187 generic cells, 77 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:16+00:00"
+ },
+ "24b7a95b45bd16f4e9e88ef2ee0e5b9ea91a7f343f6a0a67f82e5e16e6914049": {
+  "label": "simulation W32 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:37+00:00"
+ },
+ "258a9be2bbed015c41a2f8e17970664d43e39a288f942e61571ad39133cf9c60": {
+  "label": "lint W8 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:24:42+00:00"
+ },
+ "25b658434586cbe2c7e72b60be5dadd82789e680b4b2e900407e934c909f9932": {
+  "label": "simulation W16 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:40+00:00"
+ },
+ "26107b1afe8f4fe43443a5f9198c3f0c68084f1c243be872cdddfc3e923f9651": {
+  "label": "synthesis W32 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 2170 generic cells, 1040 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:36:06+00:00"
+ },
+ "262cb8d54a23ab7f9fd87132e3ee4869964805377eb4b2b073d8bc7274d32b64": {
+  "label": "formal W32 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:43+00:00"
+ },
+ "27e1d23c2d50a9c9b6015bd88c0a191c554ed676ef0729a56b05f5839c477138": {
+  "label": "formal W32 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:52+00:00"
+ },
+ "2a69eaeebf65790776d3ae15e3af394d5adfeeb94ad437c7f5013c94473d21de": {
+  "label": "synthesis W16 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 154 generic cells, 73 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:09+00:00"
+ },
+ "2b6419eb56ee2079243079f9f5a23d247a2272ffd19af74d3582bea0b6b83472": {
+  "label": "formal W16 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:03+00:00"
+ },
+ "2cefd40d6facab499fad2a59f345367cd0ef1ae12f390c4a2c178a4511f7e780": {
+  "label": "synthesis W32 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 1097 generic cells, 529 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:32:09+00:00"
+ },
+ "2d2cee4c41bc60ea94f99d23ecc2df39cb16c5a128c1f7ab520fd86622af28bd": {
+  "label": "simulation W32 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:32:41+00:00"
+ },
+ "2d84eea5bad90b60567f0d2eb0bc27c2eab49c9d72727edf760a5169ec21a876": {
+  "label": "synthesis W16 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 601 generic cells, 273 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:42+00:00"
+ },
+ "2dc6ae4b7bee88e14bc5b1cf54e2e510941dd7019d2023aca89fb10fe7a48aed": {
+  "label": "synthesis W16 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 1162 generic cells, 528 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:15+00:00"
+ },
+ "2defd725c122f98ecde9749a4ecdbd1c61e2d9a0a1e82bc60347308f668ac393": {
+  "label": "formal W16 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:51+00:00"
+ },
+ "2e24e11ed65774fc5e13bcad0253b73498b20e251765cf51138e7a9cba8c101a": {
+  "label": "formal W32 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:12+00:00"
+ },
+ "2e4e2f5a2343613d3de2da6490060743d5e8f061981ceedc26f8ee93659bcbba": {
+  "label": "synthesis W32 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 547 generic cells, 269 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:07+00:00"
+ },
+ "2e5a011dd6148d89cf7d70b5ee079a0dbef689f43d898c9bf6e3281bb38ea648": {
+  "label": "synthesis W16 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 154 generic cells, 73 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:02+00:00"
+ },
+ "2f84743bc5af12a94fbeef4d20592e854480cdf4d74d97f42a58b069b8014d66": {
+  "label": "synthesis W16 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 1171 generic cells, 533 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:37+00:00"
+ },
+ "300325d04ec49d03958cf2b445f4def117d2820b88d2e2a3a8505618448b17ca": {
+  "label": "simulation W16 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:05+00:00"
+ },
+ "307cd4f7efd169f08320f2382668a94ca7434cba93be01a23f2b3a0633ec657c": {
+  "label": "simulation W8 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:11+00:00"
+ },
+ "30bdbb805b03abe3a7ce8e0895bdb3cf90e8cb35489d8baca3b7488b323f513e": {
+  "label": "simulation W16 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:27+00:00"
+ },
+ "3105c0ed0e35a6954c8217c5502c2ebbbd6af7341932f7bac633813f02d105b8": {
+  "label": "simulation W16 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:22+00:00"
+ },
+ "3115459f6cfb0252e5c8dd51a8e0905b18dfb110dd9e23ffc87aa2c6c26b6d11": {
+  "label": "synthesis W16 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 1173 generic cells, 533 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:25+00:00"
+ },
+ "313b5ea47594ef73d7c94665333561c17396123a81a882e5ac6d32a611f6a23a": {
+  "label": "simulation W8 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:21+00:00"
+ },
+ "3335d54fe1a0c1385d6ec732ba6af5a5cc979812c42965d2dac56412550f4e19": {
+  "label": "simulation W8 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:32+00:00"
+ },
+ "33dccd15c1edaa09b84b523730323c332adff7c5ee8014578bc55feda9a7157b": {
+  "label": "synthesis W32 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 1094 generic cells, 529 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:57+00:00"
+ },
+ "348cc20e07d15c4577fbcfc0158a67fdf304760b0a24643dfe25b6d4d263e460": {
+  "label": "lint W8 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:27+00:00"
+ },
+ "34db59e5efd4db4499a2550218432c30dc25a3221067664918c1a3d63b5a63f5": {
+  "label": "simulation W8 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:45+00:00"
+ },
+ "350db99ef183cc006f4c81e5ec281e6fa94d0cf13c87b684f67564c58226dba3": {
+  "label": "synthesis W32 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 262 generic cells, 137 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:21+00:00"
+ },
+ "3694667d89fdefad748ea521d6eb87ec540d47b5424a3175a58ca31c88dc78a6": {
+  "label": "synthesis W32 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 2179 generic cells, 1045 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:35:35+00:00"
+ },
+ "377e817b83796e1a79ce67069672539f37c0661df057edaa88a0abe9b4f4044f": {
+  "label": "simulation W8 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:16+00:00"
+ },
+ "3b0d7bcc531ecb222232253045dacfdd1f6efc22787a0dd45f5cb962f5768545": {
+  "label": "lint W32 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:47+00:00"
+ },
+ "3bc3a80f5f73973e0e97ad643f9d42ed659953a88f0b0866690866f493d4789d": {
+  "label": "simulation W16 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:38+00:00"
+ },
+ "3c08765c7cfe0329f4b5521c1a39ea784dd99633e728acf32062e099f6a4f613": {
+  "label": "lint W16 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:29:16+00:00"
+ },
+ "3d37e30b3d8c712c24905a11adaba23bd49a01573d46b59b5e68cf07b79b316c": {
+  "label": "simulation W16 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:09+00:00"
+ },
+ "3e1dc42541cc5cb1fdfaf208c3f014a9ebbe6237e4e5eae54cf36b6844fd0307": {
+  "label": "lint W8 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:27:53+00:00"
+ },
+ "3f6c9f00de007c1ad54b8927221949d5fff0b8a8c0cb4e3bb1504d40a1c56164": {
+  "label": "synthesis W8 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 669 generic cells, 277 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:46+00:00"
+ },
+ "3fe59717152895b7c5c999520d0eb32e6aa519e9dd4054395b31a21e8eaaa3e3": {
+  "label": "formal W16 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:39+00:00"
+ },
+ "40cc28b29f0e17202bf632fad34693de3d6ffbea1abd5d1ad15a32836dc5ae24": {
+  "label": "lint W8 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:18+00:00"
+ },
+ "413ad673462118bdfd4e2f3feea7622a486af3465dcc1fc5cc5ccd56dda1cae4": {
+  "label": "lint W8 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:25+00:00"
+ },
+ "42eb61abd6b5d4157576044a7658b95035f4b7ef4a94bc02805361b91693568d": {
+  "label": "lint W16 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:29:44+00:00"
+ },
+ "44069f0316174d3b6621ecc91c75bc47eb2a2cf0517d50733d9d45d8174a4510": {
+  "label": "synthesis W32 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 2172 generic cells, 1040 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:35:39+00:00"
+ },
+ "44b5a610e3e009fc542cc71a9dce37d0b8afc2769ce54bcbb73903c44529a8ef": {
+  "label": "simulation W32 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:03+00:00"
+ },
+ "4557f28f4da3b3d592ff298506f1effcb639e4be46b2ba6bc80ba2dca33c9417": {
+  "label": "formal W8 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:11+00:00"
+ },
+ "45f49983b3c836930ae5115bb4e2e6bf00e75e1c268e15e76ac697b7ca8c5b1f": {
+  "label": "simulation W8 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:24:43+00:00"
+ },
+ "4612b6c355f975a34cd574e29d1786a41f22b0d1f355048858604a1beaaa6181": {
+  "label": "simulation W32 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:49+00:00"
+ },
+ "46927b4f9080dfb3e55cdcc97be1380204afcaf81a3a990d1f36c9656320fc02": {
+  "label": "formal W32 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:40+00:00"
+ },
+ "46b66b4086c3da01004f14573fc4f112fc3367802599a86676ed7e4567c5d297": {
+  "label": "lint W8 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:12+00:00"
+ },
+ "46cbac275384d06a294a1612e093f1f4e00874354c96fdc5733d7a30083f295b": {
+  "label": "lint W8 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:14+00:00"
+ },
+ "4869db91701cdb88f8519687fb1d92240f9d3669e9cd5f9bed4f7e3fb83a7546": {
+  "label": "formal W8 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:39+00:00"
+ },
+ "48e745a138959d0c7654c0bf63b17d790a81f991d32208c1812960f359c289a3": {
+  "label": "simulation W8 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:48+00:00"
+ },
+ "492042b187654afb9c87283d1802060c6c9292946acf475c1990e46f6d6dd9c5": {
+  "label": "lint W16 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:10+00:00"
+ },
+ "498a671c9e4e6c68ff61fb25eb1b67dfb56d9b304d44ce5fa63aac5987e41c17": {
+  "label": "lint W32 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:36+00:00"
+ },
+ "4d904453f69226659ff1d873f9cccc717a03cf91e150c746309291e9937131d5": {
+  "label": "lint W32 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:32:10+00:00"
+ },
+ "4dbfdb66adaf6f4d136fc08e4154104fd2504efbf2b1b1430698d02b77d9c34f": {
+  "label": "lint W32 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:22+00:00"
+ },
+ "4e3a2a7bc1702730c66126b4dc55574dc44e89a75f054ebb5d627ec5079806cf": {
+  "label": "formal W32 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:05+00:00"
+ },
+ "4ff5d54989265fed997b57bb6721d5eff324e35ab9f7c8acb01905d1dd6125bd": {
+  "label": "formal W16 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:10+00:00"
+ },
+ "5000e7968a28cfd934e848a5643b580d9a779888486b190d8daf4777ab19a7db": {
+  "label": "synthesis W16 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 150 generic cells, 73 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:06+00:00"
+ },
+ "51c93c5182d4661e2568a08247ad6abb116d0d2f2b9fde9233ea273a529d5036": {
+  "label": "lint W8 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:08+00:00"
+ },
+ "52de387a60fe599b93f6baccf4d46cc0b72431dfba019c38e56dde23e721be9e": {
+  "label": "lint W8 D16 sync_active_low rw=true defect=full_off_by_one",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:24:43+00:00"
+ },
+ "535115964568b2ce516889a039b3af8f886a4799eef04127a77103241b0d1e96": {
+  "label": "lint W32 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:32:28+00:00"
+ },
+ "5573140a59ba0f97828d22d95dc9843651a0d3b3fc61c162cea3324a0b1f62c0": {
+  "label": "lint W32 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:32:22+00:00"
+ },
+ "570d0e9a80e88f8d6f4c60fe11fee95c6fefdba42f6588096c54e845126b63ec": {
+  "label": "simulation W16 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:31+00:00"
+ },
+ "5730bfe31af5f80cb1d42cfe14c43931c6f0e7aa6a3a0de0e65fee04d5fe0954": {
+  "label": "lint W16 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:29:19+00:00"
+ },
+ "578509cca47297524c944a49dedc9ce6f24fb6d8172d1aa4d986cec419f41ca9": {
+  "label": "simulation W32 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:25+00:00"
+ },
+ "5afbac689d6307345f4a86e17ba12bbc0414ceb1a113dc8ea3f8234450cbad31": {
+  "label": "formal W8 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:36+00:00"
+ },
+ "5c7daaf51a94977359e916eae080897f2396a58c88169c63d2fb3aacb2d798f7": {
+  "label": "formal W8 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:46+00:00"
+ },
+ "5d0c1121b92ba8e885e1556531955fed796c3a944985edff57fb300f0457bab6": {
+  "label": "simulation W8 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:19+00:00"
+ },
+ "5dd8c0af9131579cfbd20bfe2e15a62c92c97278a8040dd0511ba968215bf792": {
+  "label": "lint W16 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:43+00:00"
+ },
+ "5f75b150b2bbb53925e4466a05a49f1c3bb7ea41cb9e10459b7338bf2878d245": {
+  "label": "simulation W16 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:08+00:00"
+ },
+ "5fab702657a8650e2b5aeca4ae95e623fe8d7c02055def0df760abe3d5861567": {
+  "label": "formal W32 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:10+00:00"
+ },
+ "606bd8ef020a521b6bd3a9bd594d3eadc9d4606ddedc6b1ef10a09b97db4ae83": {
+  "label": "formal W16 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:20+00:00"
+ },
+ "63a0e3b48430436b8e0ab8ad6685ef17ab9a64217eadd91289ab3497ae49493a": {
+  "label": "simulation W8 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:13+00:00"
+ },
+ "6684ac8a2ca07b61e7809022267a9c8c08328a316ad58ab118ca491b1628e584": {
+  "label": "synthesis W8 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 90 generic cells, 39 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:13+00:00"
+ },
+ "66ea4499da3fbd0570de5c0829fc1ea5487aa246df4317cd80600a202d561a2b": {
+  "label": "synthesis W16 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 1171 generic cells, 533 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:20+00:00"
+ },
+ "67a036bda6a95603f657c739f787b968f81bcbfc512fd420137c9bce543cc520": {
+  "label": "lint W16 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:28:03+00:00"
+ },
+ "67b4cfd3121567a1b0cc53c409a108fc2333ed32ae8d253e5f7928d4a77a2c14": {
+  "label": "lint W16 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:29:41+00:00"
+ },
+ "68c3f3985ff2f95e874632b4b6121f328ebc67b3035a6523a391b15868bce998": {
+  "label": "formal W32 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:56+00:00"
+ },
+ "68c69fcd1182a0b1fe77970539eaeba0ceab06fae023cc2e554ec1442b083c8c": {
+  "label": "synthesis W8 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 660 generic cells, 272 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:55+00:00"
+ },
+ "6a4f63c530446f412f11a54d5eaf81b46da5e4bd11e316dbd2ed8e591d2a4a51": {
+  "label": "simulation W32 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:40+00:00"
+ },
+ "6a82dd4e738d4b93b74e1f6f4b3b9a4bcf447653b756650cfb6eee9eed5becad": {
+  "label": "lint W8 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:08+00:00"
+ },
+ "6b410ff4f3372885bb5447a660e84a1a1abaa0a733f7f566dbc5eec46894619b": {
+  "label": "simulation W8 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:42+00:00"
+ },
+ "6b78c14ebf13ad335430fb4794f516eed31b6418b71c403faf9310f02be06082": {
+  "label": "lint W8 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:24+00:00"
+ },
+ "6bac5263eca947b19048e3cb6c36f0e03c287d78042b5648ce8ae4e2c27637cc": {
+  "label": "lint W16 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:16+00:00"
+ },
+ "6bcf48af1c32f2be66fb42f00b595cc197a65839721fdbff25fa1587fb856cd1": {
+  "label": "synthesis W32 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 547 generic cells, 269 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:01+00:00"
+ },
+ "6c8784363b9cb3ce3d8241d308cf06b7f7c0f6e2638a28abe2205e4428550f73": {
+  "label": "lint W16 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:28:08+00:00"
+ },
+ "6d76b7adef0062c24465ff63490493ab988281eaa1db6e50053f61b4df15223b": {
+  "label": "synthesis W16 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 594 generic cells, 269 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:07+00:00"
+ },
+ "6d86bd753cdebbb5fdcec414debb5d6ae3f91cc0c0dd2eed5cdd8ff2aaec7c61": {
+  "label": "formal W32 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:52+00:00"
+ },
+ "6db80bc5f99034aa4012431b68252d6a62988afe1600d424f1966f086ffb2084": {
+  "label": "synthesis W8 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 98 generic cells, 41 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:08+00:00"
+ },
+ "6e5f93021be7a924ca8ff15991908f3301fa1cd15fdc1763174033a9d558b579": {
+  "label": "formal W8 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:52+00:00"
+ },
+ "70bb39b65662f57ae12be95bf02a6d5ebc0d1864cec7960dd3b5fa7cfd181788": {
+  "label": "simulation W16 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:05+00:00"
+ },
+ "717dc6db7dc630776fc8c4884abe7a5e44a337650fe35fcdeaa1b4dffd22fe44": {
+  "label": "formal W8 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:27+00:00"
+ },
+ "72869516cd50b1745ad0888d26c3ae518911d300b73123d5389e750ac5c64a4a": {
+  "label": "simulation W8 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:09+00:00"
+ },
+ "72c75e70e99accf9fdb5e25e310c96a8dec368e7d52df933c5763a3d52dc81f8": {
+  "label": "formal W32 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:31+00:00"
+ },
+ "7331928171bb793b3e5313a7dcbaf1b486bdac797cd3f07d21619b28fad4ca49": {
+  "label": "simulation W32 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:32:50+00:00"
+ },
+ "734a8b28092abf335771428222574b9243a536dbcc173b7c1ce5567e5390f499": {
+  "label": "synthesis W8 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 181 generic cells, 74 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:23+00:00"
+ },
+ "7374498884f7d74a3eda1d9a161256bf3e1c706982e61565a2e02b2939e21610": {
+  "label": "simulation W32 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:32:23+00:00"
+ },
+ "747cd3de56174de7dab41ae571f518cdb21afb0bc92da067b987ca2e38c6a68d": {
+  "label": "synthesis W32 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 261 generic cells, 135 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:37+00:00"
+ },
+ "7491cc8356478433bebdcb23507bffe07067e36627a9abb6eb0694afca524cdc": {
+  "label": "lint W32 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:29+00:00"
+ },
+ "74e9a78db47957f07fc843fff4754afc7f12b5000002b9c1109064cd527f1ac7": {
+  "label": "synthesis W16 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 146 generic cells, 71 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:16+00:00"
+ },
+ "76ec05d5fa9f00f902c478fb843ec26c7722668e71415af93599ff068d9e0b62": {
+  "label": "simulation W32 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:35:42+00:00"
+ },
+ "77458aed3ef7268777a15305af745c281607d93c66272f8e441e8b54a6268090": {
+  "label": "formal W32 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:57:50+00:00"
+ },
+ "7953814f4a72edc94b003978cf4acb96c55e3cb926017ec6ffc97c1790261838": {
+  "label": "formal W8 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:33+00:00"
+ },
+ "7971ee6f7383c52d8187d572a5eb6f8a0bb2fd9a268cdd215d1a42bb62d15c8b": {
+  "label": "synthesis W8 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 187 generic cells, 77 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:19+00:00"
+ },
+ "7bce72695f96fe2d7431a742d7e00d187b79876aef12651977528527cfd28322": {
+  "label": "simulation W16 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:21+00:00"
+ },
+ "7d5421ba1b56071c17502b0a0123b0a918b87790e9d7363a15da117c9122b46c": {
+  "label": "synthesis W16 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 591 generic cells, 269 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:10+00:00"
+ },
+ "7e8e46ba3a17b63d762ae7e1787400dd93495a3bc0960b450db09c2b82413a86": {
+  "label": "lint W32 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:58+00:00"
+ },
+ "7ea12a64861907a5f597eb3d247db57c18e96a32b76b2907992b5460fa69dfdb": {
+  "label": "simulation W16 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:15+00:00"
+ },
+ "803b3af8020cc1d160c228ad0cb6ed81e9b076898d43d4e92a2bfe0c092379a4": {
+  "label": "lint W16 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:26:59+00:00"
+ },
+ "818128c8c9429e9884020d6bb0fc466e50dcd93d53a15acc5b3becf5869c0f2b": {
+  "label": "lint W16 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:24+00:00"
+ },
+ "8317b450194c497fe834880555d0c1c8793e26238871c7ccf45dac82fffdf533": {
+  "label": "synthesis W32 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 266 generic cells, 137 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:17+00:00"
+ },
+ "84a52db55e3d2966454b0ab2beb9f9d8c3238a8689070d97c24e6a5c7aa3f833": {
+  "label": "formal W32 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:58:09+00:00"
+ },
+ "864f39a5bde44fcf348ad41ed00af9ded3da53a0f01fa5b81fa4c34002527e20": {
+  "label": "lint W16 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:06+00:00"
+ },
+ "8699c2af0cca2a041944d8e87baecf484c406647e3bf84e723ca470d2efd3475": {
+  "label": "simulation W8 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:37+00:00"
+ },
+ "86d07227fc42b9d95dd918e0bee9f08c0b4a92294a897bf9f3044dd20bf52809": {
+  "label": "lint W32 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:42+00:00"
+ },
+ "88aa0008ae07c86ec0e8ac6e94e79af39ed544d27546a334489d4d40d1aa04e2": {
+  "label": "lint W32 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:31:25+00:00"
+ },
+ "8a37b7d10e98401c68ee1f3caac401431c517007c622547563978008e08e9af6": {
+  "label": "formal W32 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:48+00:00"
+ },
+ "8b1ec430af4a952c364c7e22942b709d9c4266622eb24773980cacbdbce22050": {
+  "label": "synthesis W8 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 346 generic cells, 141 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:32+00:00"
+ },
+ "8c28ba4a66b318a6450bd591d6c608b128a3c0c7de816af2834f6afeab25e3d0": {
+  "label": "lint W16 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:54+00:00"
+ },
+ "8cf18a44b0dc6c3e394002c4cbece678f8d28d7be9d6ab249ef4a9925b5a3919": {
+  "label": "formal W32 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:57:59+00:00"
+ },
+ "8e7019715d064c92dd718122a106766c8a6e99abe80e37eb06a3b3024eef1fbf": {
+  "label": "formal W16 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:21+00:00"
+ },
+ "8f38584bda1fc0b3525435644f9c1712675fdbbae188994a3860ce9814ecaf92": {
+  "label": "lint W32 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:45+00:00"
+ },
+ "9000a8956527402ae6695a19d893721f006309c2251887f8fb9e6c8be3d23c64": {
+  "label": "simulation W8 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:57+00:00"
+ },
+ "90c4b48feeee35f9a4231217b447aedd8f7b06036440f7e8b3bda9fe0187db7f": {
+  "label": "formal W32 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:20+00:00"
+ },
+ "912b77b226fddb5d3c8a1b740c87ab787ced012f28ae38930503400af9e1be8a": {
+  "label": "synthesis W32 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 2181 generic cells, 1045 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:35:08+00:00"
+ },
+ "92964df66004568606d944a362a35833ce3f1e61211881a175116ccdde3179de": {
+  "label": "lint W32 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:22+00:00"
+ },
+ "92b60be6e2c24b3a809324c148f7ab85fb0caf4f05891df7679f56f172a49e8f": {
+  "label": "lint W32 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:32:18+00:00"
+ },
+ "93ca1e50d805224d495dc2b162dc2f04a7c42a9942468537a0ca22ccc80e374e": {
+  "label": "formal W8 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:00+00:00"
+ },
+ "9413d206befc728b405f134458adaa2a86fc2b0ba3a6fdcfa83423b038cc42f5": {
+  "label": "formal W8 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:40+00:00"
+ },
+ "94caee2ff74b33407d5bf79fe98f588990123a41bebd596ae3cd80ca07c5800f": {
+  "label": "lint W8 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:20+00:00"
+ },
+ "9641fbdc41e8c4ad887240f50bbf911b7843f5db2f079d83b63e795835b0d8a5": {
+  "label": "synthesis W16 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 309 generic cells, 141 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:19+00:00"
+ },
+ "9659c791dfe4476a965731b9a6b6413971943ab39dfc86235863a454f68e29a7": {
+  "label": "synthesis W8 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 667 generic cells, 277 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:43+00:00"
+ },
+ "996b43a6950278d80c35988e8d96faab2179d1ec30073a99aaf14d7cf98871ff": {
+  "label": "formal W16 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:15+00:00"
+ },
+ "9a023f0ab3d0148d7f330a07ea94f094cd44db8fff9628e7e7422694ee7e5fbb": {
+  "label": "formal W8 D16 sync_active_low rw=true defect=full_off_by_one",
+  "status": "FAIL",
+  "summary": "formal: COUNTEREXAMPLE_FOUND (1 failing assertion(s)); cover/vacuity checks FAIL, so the result is incomplete",
+  "recorded_at": "2026-10-23T06:52:52+00:00"
+ },
+ "9a0eaa84c6bfbf508b801ade97e30ea2925cf646ef246f1a479b6e5f33558c16": {
+  "label": "synthesis W8 D16 sync_active_low rw=true defect=full_off_by_one",
+  "status": "PASS",
+  "summary": "synthesised: 355 generic cells, 145 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:24:44+00:00"
+ },
+ "9a50103612754aab2f124b5a53e549d1148160b2f83f30e0aaf32e018e0356e2": {
+  "label": "simulation W8 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:27+00:00"
+ },
+ "9a98b2f46c8fad710dc0e3a622dd984a6e7c9d62fdfed829cb9f6b4f57779eb4": {
+  "label": "synthesis W32 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 549 generic cells, 269 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:04+00:00"
+ },
+ "9b719747dee654b1aef1b7bc996fbe8348dd1539041c56294a65fb4005eeb62a": {
+  "label": "formal W8 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:21+00:00"
+ },
+ "9de5f8793c0e7862c679218ceacb9af2d5a9658e1e00f038565806825e00ec93": {
+  "label": "formal W8 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:35+00:00"
+ },
+ "9eaad151f8d2484c289720e127731a88234efb6ad0d015b53e33a2fc89efd9c6": {
+  "label": "synthesis W8 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 94 generic cells, 41 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:08+00:00"
+ },
+ "9f26cb951071b61edc17aeea23cc0b53d9ea0fd4d71d25cb5acbe10384c5d8a7": {
+  "label": "lint W16 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:29:18+00:00"
+ },
+ "9fa39a0a344a4f0125ff0bf01ced210d56a5155c9197b6b22386289f53d8263b": {
+  "label": "lint W16 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:33+00:00"
+ },
+ "a00a57d07d2cc7ab409fd9c57045d8ad98e626db3bacc974a906c7e4d037361d": {
+  "label": "simulation W16 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:29:02+00:00"
+ },
+ "a110d4c3491cba17a88e9ca5553e6862da28ba656c1da4652af342de52964794": {
+  "label": "formal W32 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:58+00:00"
+ },
+ "a229000e143554af081b5d22381be7ddcc8ded49952cc87c6c116451ffbdbe6d": {
+  "label": "lint W8 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:14+00:00"
+ },
+ "a2f97a474373519ac5cf6b2bf1a0d423b5c430b27d0c99f569a15b7ccab8d572": {
+  "label": "formal W16 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:38+00:00"
+ },
+ "a3327fb41835e7867fac155b627a4b7439ea80ec506a0ffd24753c6edd5c1dac": {
+  "label": "lint W16 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:36+00:00"
+ },
+ "a69f71d75735f46fe731078d78b013f95f1a34d9ee996cce5d816e6474c72c36": {
+  "label": "simulation W32 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:31+00:00"
+ },
+ "a6cbe8ca8c1efcfb968b249a6ea386dc23c9f5afd2100ea30ba7a7115df6ac37": {
+  "label": "formal W16 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:30+00:00"
+ },
+ "a781f4ec93682089e199de5a0cfd0b57fc06074eaadaf28305ae9a257cbf1952": {
+  "label": "lint W32 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:08+00:00"
+ },
+ "a9276b486ed6a4383b30cb3d1818cebb5964ba4b7ebebae9f82834c71b468b85": {
+  "label": "formal W32 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:57:09+00:00"
+ },
+ "a9e568d1e73dd02d15e7531ba5a016671db2a51f2a40d74ae8024247cf095916": {
+  "label": "lint W16 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:20+00:00"
+ },
+ "aa04480932e4532ea752fa306ecc47a95517ecb3fec291b79d2f988068744375": {
+  "label": "simulation W8 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:15+00:00"
+ },
+ "aa7e03f19b6dcfbbb8ce779c8d914babb0d7b3cb5401eab2626e53aa5e6007f3": {
+  "label": "synthesis W32 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 258 generic cells, 135 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:41+00:00"
+ },
+ "aaf5813b0dd31dacc7ff18006fbfb1cf6148de02af2e4140e8ff8219d027b742": {
+  "label": "lint W8 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:27:54+00:00"
+ },
+ "ab9b81aa27f73cfe66ccf49841ce40d57640ad07befd7d0426c52a367cc1e2e2": {
+  "label": "simulation W32 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:20+00:00"
+ },
+ "abb69e622d2935830eaf59aae1984247b7a70dd4c235bc5418b0097c0636d3a3": {
+  "label": "synthesis W16 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 309 generic cells, 141 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:28+00:00"
+ },
+ "ac586441614d82e046bd3e714c6f99f981f3c38f18b455ab59058180393a219e": {
+  "label": "lint W32 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:32:16+00:00"
+ },
+ "ac66d60b2fe86a06f70419cedf4c05a2110414a6eac13e5ced3e0ee26dc27c68": {
+  "label": "synthesis W32 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 262 generic cells, 137 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:35+00:00"
+ },
+ "ada115ccfa541c71adba675fa9762a4dba753a8be83df64ea0054b99bcb7fe93": {
+  "label": "lint W8 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:08+00:00"
+ },
+ "b088cd1105fd0cf871b2e73d46aa9825a7bd07ebd6f3de17a3c283c085ddf507": {
+  "label": "formal W32 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:57:29+00:00"
+ },
+ "b18d2e425d121a55e58840143ecc37ffd2d3f7174b238d0e5f308c912c7dae42": {
+  "label": "lint W8 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:28:05+00:00"
+ },
+ "b1c32fafe24e287fd4689c55d05dc3f47754360f2d54cd988aec0160caee7410": {
+  "label": "lint W8 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:12+00:00"
+ },
+ "b2e962c0ade45bc2214551384c45dc7175cc3a697a88fc5cb1ce4ade5efb1b20": {
+  "label": "lint W8 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:28:07+00:00"
+ },
+ "b32d11db128aeef5a6b56175d5df875d6fa15919fd11f983401c3c27839a3a35": {
+  "label": "lint W16 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:29:17+00:00"
+ },
+ "b482eed57d113e9efc88f9f3c75886d9e5826c6c48d9f7974ddd4e2a231a15da": {
+  "label": "synthesis W8 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 93 generic cells, 39 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:12+00:00"
+ },
+ "b5c0a8643f7b32c919a38d9c040f5f3840fd2818eb359a3352b13eb7a6b95e27": {
+  "label": "formal W8 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:04+00:00"
+ },
+ "b7ee86da5f0f24c72f0ae1c919138dd3b8bd3aeca3b8193c7d6790223d19cf1f": {
+  "label": "simulation W32 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:24+00:00"
+ },
+ "b840dee08b9b7527694e3da86940b1bb16f6ead3aad1cfe8dda442d22bc52519": {
+  "label": "synthesis W32 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 543 generic cells, 266 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:22+00:00"
+ },
+ "b8f5ea894da56e6273f10a80bfa898552af61df9d377a707e09a2e7d1cae4300": {
+  "label": "simulation W32 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:30:17+00:00"
+ },
+ "b9d6630150ee661ae45fc397a9c0538bc3343ff1ebfd1ad2d80d5aaadc90b60c": {
+  "label": "synthesis W8 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 350 generic cells, 145 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:30+00:00"
+ },
+ "ba59e2ecfb764145c8e867b646ea5373166b331c5f332f456635efaaff96fd4a": {
+  "label": "synthesis W8 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 658 generic cells, 272 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:26:59+00:00"
+ },
+ "bb754d9b43213f4d87183f5b200418c3c6a1260c0e76444a123ef633e43945e7": {
+  "label": "simulation W8 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:18+00:00"
+ },
+ "bbb3754fdb58315d8ae6338a6421717e295b41b8446611e09ff15e463898dc20": {
+  "label": "formal W8 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:58+00:00"
+ },
+ "bbd697923192801f032dc949dabc507e9767eaa4b0f85b61fd145f1b0c5731e2": {
+  "label": "simulation W8 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:26+00:00"
+ },
+ "bbe8411f794c37963ad27cc44eac7447a8ef2b1e487419303e9424dd5802a306": {
+  "label": "simulation W16 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:35+00:00"
+ },
+ "be7ac21bda948cd5a81862d18f0dd9f312c6327663d410551a3a89f6be4c7523": {
+  "label": "formal W8 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:38+00:00"
+ },
+ "be95f9eb0bf7e8d43244668fc105b65924a3ef241faa0c2a406075160df1fff1": {
+  "label": "lint W16 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:12+00:00"
+ },
+ "bec7f64a2fb0de57900b6cdf36b238becedaab0a26a815a64e02b86b3266e4b2": {
+  "label": "formal W16 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:46+00:00"
+ },
+ "beca6609d512b3ac6479ebf03518773e6b7c2a9c62cd5b98f5ff675639547720": {
+  "label": "formal W16 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:35+00:00"
+ },
+ "bf0aa750ce2841ad1ed3989d7eaa7e26230ba7aac34a478dfde33201144eeb51": {
+  "label": "synthesis W16 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 1173 generic cells, 533 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:28:16+00:00"
+ },
+ "c541e6883c54610954e8a2b4ff6f510b499d1805dda65057d31829bc59b912f3": {
+  "label": "formal W8 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:11+00:00"
+ },
+ "c5ef5ae999b669a935925db28a3fa9b8ae5e5ca397f8d43dde7f31169353e0a4": {
+  "label": "synthesis W8 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 189 generic cells, 77 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:17+00:00"
+ },
+ "c74937d99bc3a0399ece69a1cd8502ee41edd74927bc2abea1b4cb09b919bf75": {
+  "label": "formal W8 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:51+00:00"
+ },
+ "c7f2ea9aaeeb90103b64b6c377fb0aa7a2e2bb61cf0243a8a2752310bde5f8c7": {
+  "label": "simulation W32 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:35:38+00:00"
+ },
+ "c8d881f2e5ad480a3b25af55f8b324c1dbfeccb0b2297ca41f17c7ca5bd896af": {
+  "label": "formal W8 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:57+00:00"
+ },
+ "ca0cdcb28c42a64887c21c88e4427b90cc3fe2f143a9f46ab086f99970f158b1": {
+  "label": "formal W16 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:14+00:00"
+ },
+ "cbcb3c6ba54756712ef6ed69fd8258267978de4c2ac7e9c2e76eccdee1e70e62": {
+  "label": "synthesis W32 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 266 generic cells, 137 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:30:28+00:00"
+ },
+ "cd63b7bdf9087452d158684774b755d7cac68fffaedf93ae2fdaffb25ce7dd3a": {
+  "label": "formal W8 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:41+00:00"
+ },
+ "ce880351f9c7255ef0defe3737e91aa96161a635d4be1c9a3355d77682afed4a": {
+  "label": "simulation W8 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:09+00:00"
+ },
+ "cf5f09f535467b06317a3c5f082c253703f5881fb06ed0695c7c69b9ffd603d2": {
+  "label": "synthesis W8 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 667 generic cells, 277 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:52+00:00"
+ },
+ "d34ae1df325d2e2fe99626e5ff27f5841295cf458ed89ceedc5272f3992b2e50": {
+  "label": "formal W16 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:18+00:00"
+ },
+ "d41bed9e7ca971b4645c3d42ba0f3d9c829598ed53f653992381fe6fa892b32b": {
+  "label": "simulation W16 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:11+00:00"
+ },
+ "d5d793079cbb46836f71119a4218065639c6784f24dea6f8faed49fbe1a647c4": {
+  "label": "synthesis W32 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 2179 generic cells, 1045 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:33:16+00:00"
+ },
+ "d60bf92b9e48c5634f8b0cc34f134d068e4b93d0e02a8aaa798ffafb539f5e00": {
+  "label": "lint W16 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:28:06+00:00"
+ },
+ "d6c5a08dbae2c5562067e14b7310a5c5b7d4d7ba10bd669103eb0465113fe426": {
+  "label": "simulation W16 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:13+00:00"
+ },
+ "d761556188473e91a20ec082dc7a488614ea1699cccda4b4b6126d6d11246fa8": {
+  "label": "lint W8 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:27:55+00:00"
+ },
+ "d8598cd6ad4bb25d2332e97217736297cedfb113c3e995b1568843ecbdefd2cd": {
+  "label": "simulation W16 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:26+00:00"
+ },
+ "dae15a5ca217668424be185617e15eb2e733fff8bd277c54e47e65fff4d1c68e": {
+  "label": "simulation W16 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:02+00:00"
+ },
+ "db16b3e004b475364ca62ac6aa033cc7265eb177dc43b2bc115f5fedb14483a6": {
+  "label": "simulation W16 D16 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:44+00:00"
+ },
+ "db888b3faad911106574e285d8f0d31728146d4620b992e563431268d1f858ac": {
+  "label": "lint W16 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:14+00:00"
+ },
+ "dd602d140978843408a73bb6a95bc34329bee5ffed32b267f8f7fbf06f69254a": {
+  "label": "formal W32 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:56:25+00:00"
+ },
+ "df4a09b3f9c764ce2fe66b63e2e84b0dc03b4cd8bc545ae7eac77af0eeabc2b4": {
+  "label": "simulation W32 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:32:15+00:00"
+ },
+ "e060842f9530554f9f1725faba996f62d520213fe38a9642d46b50b1edc5c254": {
+  "label": "simulation W32 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:06+00:00"
+ },
+ "e0c46adbf42ad93dcd9655d6df175fe336ad03af0d0da4dc4c7bc4e1499f1ca7": {
+  "label": "formal W32 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:57:41+00:00"
+ },
+ "e0ec26228006761666be447e164899816cd8a6386a5d9a712346ec81d1dc4c74": {
+  "label": "formal W8 D4 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:26+00:00"
+ },
+ "e422052c7ea679217afba02ef3c4ff68b78d939e4910ffcfe655c9ef2ff8a2d6": {
+  "label": "formal W16 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:35+00:00"
+ },
+ "e53dc767dbcbc6de504cf83c4e2f0820a4152f668ab50f01c0d85ff8bc872d51": {
+  "label": "synthesis W8 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 183 generic cells, 74 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:22+00:00"
+ },
+ "e56215caf9d7b03f9e4717723cb55c7aa0146e1735f8470bf6ae8921c2225e9e": {
+  "label": "formal W16 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:57+00:00"
+ },
+ "e58dd860285e6aa7c3b0bb791529109a2925e817257d6c0c326e42646591193d": {
+  "label": "formal W16 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:01+00:00"
+ },
+ "e598c3d16cce90130ef26bcd083d9e83b4f5e7b8aa863152eaff9640c93aa01a": {
+  "label": "formal W32 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:55:47+00:00"
+ },
+ "e5da6dde2f00a5386082c57800bc5a9f94f928b669e73d017233b0b46a828feb": {
+  "label": "simulation W32 D8 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:09+00:00"
+ },
+ "e7c5a879575fc919ec5acffebe89ae72a23737dc4fd5422e4748b1f3cac7410c": {
+  "label": "simulation W32 D32 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:33:18+00:00"
+ },
+ "e882205ba140c14f260b3371d1d3bb38839f1862df978b9168d8b253371183f0": {
+  "label": "formal W16 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:53+00:00"
+ },
+ "e88dc9c29b0db6a5766c330db685744b428a46db0a244b1a425b5196d4e006a6": {
+  "label": "simulation W32 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:32:12+00:00"
+ },
+ "e8b4a505fd89a789f7bfa7e0654c0ec253c62fde20907017911ef38cd6492d4b": {
+  "label": "simulation W16 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:28:13+00:00"
+ },
+ "e8b9a3095eeac790b7647215d2fc5328a4c74abb077d3997dbe7e4dde4767f4c": {
+  "label": "lint W32 D8 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:04+00:00"
+ },
+ "ea4c422466627edcada78c5c96331f1c7d32176718be416c1771e0e577f798c0": {
+  "label": "lint W32 D16 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:32:13+00:00"
+ },
+ "eade5c945cf50b522bb0a9264c481cb44385eea2364d083eecf4dc1d34ff8f1e": {
+  "label": "formal W16 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:52+00:00"
+ },
+ "eb11800705e19d437df9135e9ef77cdf31f9dffd26fa8c65a383a6d9cba35e99": {
+  "label": "lint W32 D32 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:31:28+00:00"
+ },
+ "eb34517fbdf48f0e26908593d14fc6344ffda3a3fed1a18b7900e528849b54b0": {
+  "label": "lint W32 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:33:02+00:00"
+ },
+ "ebaca9b8ad1d342c249c41138284aca4deb6bd8c7ff8bf4a24bee905a985b79e": {
+  "label": "synthesis W32 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 1097 generic cells, 529 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:31:44+00:00"
+ },
+ "ebc60f53bf0e820b6166eeb9eb6aade9036645a6e19ed7aff1f9f0fb36638ddc": {
+  "label": "lint W32 D4 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:30:38+00:00"
+ },
+ "edfd2239778393071d2822181502befa11f472b3fd2d64e53bf05f99e919677f": {
+  "label": "lint W32 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:26+00:00"
+ },
+ "ee78c12021533f35d7b06d791f697ddbc9f4aae8f2a05635b5656bb93b7e2d02": {
+  "label": "simulation W8 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:54+00:00"
+ },
+ "eea01bb59980ce917431b9f727c3188845c910c6450412e331f6878450001ae1": {
+  "label": "formal W8 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:53:26+00:00"
+ },
+ "ef4e81b6196354fdd05482541593173633e07c54f263e137425db6d39f5a91bf": {
+  "label": "simulation W16 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:41+00:00"
+ },
+ "ef7113c4267fa34725835cdc6eeec3369f1cc9da4e56a2a2041db6e95667202c": {
+  "label": "synthesis W8 D4 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 94 generic cells, 41 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:11+00:00"
+ },
+ "f03cb7a2f7ea279a7565f7328487e596826cc10092ee45d9324d9f1a87d62d7f": {
+  "label": "formal W32 D32 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:58:33+00:00"
+ },
+ "f077811ffe05169ffac0178a7b0a9bb0735d855a0e6894a6e46e85077fe92f82": {
+  "label": "formal W32 D32 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:58:32+00:00"
+ },
+ "f08fd9d7547d0b648719775abcb79bdebf6466d819c96557f0f5e377edc643ea": {
+  "label": "simulation W8 D16 sync_active_low rw=true defect=full_off_by_one",
+  "status": "FAIL",
+  "summary": "3/7 tests passed",
+  "recorded_at": "2026-10-23T05:40:43+00:00"
+ },
+ "f0b52ddc7f537fd4767185c8b4b242f43e5b4716ba4c1ae27c8823fed2ca11b1": {
+  "label": "simulation W32 D32 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:35:10+00:00"
+ },
+ "f1c7cb1a84b96d1f5fdb64eeac3db6d226fc9863dc68efba0a091a3d95b79408": {
+  "label": "synthesis W16 D4 async_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 149 generic cells, 71 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:14+00:00"
+ },
+ "f2c7f420078b21dc8de05cb15112d097e04d73e12a8d1c4935b82db6a2c6ec80": {
+  "label": "simulation W32 D16 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:31:59+00:00"
+ },
+ "f314e8df57507f99afc703ea6da3c40772517e57a58c1be727737f5e82026800": {
+  "label": "simulation W16 D4 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:27:09+00:00"
+ },
+ "f37690112224afcfafe6152c0f243e5053a3954c691cdc67eb4c0dc5e121c8a0": {
+  "label": "lint W32 D8 sync_active_high rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:31:02+00:00"
+ },
+ "f48c54468ed86230c4b6f8a7f47088d2da876fb604f18db0a6cd31aafdb26b2f": {
+  "label": "synthesis W8 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "synthesised: 669 generic cells, 277 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:40+00:00"
+ },
+ "f59bb14c52c952cd0bfe2e058f0f32a0a086d753b3cb01151943c4b4df7db6fc": {
+  "label": "lint W16 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:27:03+00:00"
+ },
+ "f5f58517a8d817ddb8ec6a578afffe541bbb71873b9c2043d6db6baf6e087063": {
+  "label": "formal W16 D16 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:37+00:00"
+ },
+ "f706a0ab9ad453ca251c0e967f1d141fca18bdf8ecaa42ef37c2b15af7376c26": {
+  "label": "formal W16 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:54:09+00:00"
+ },
+ "f74f9c49f6d82ee2e6efff8bde60aded7823f1ae8c37a7b8cf740453675c60a9": {
+  "label": "synthesis W8 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 343 generic cells, 141 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:25:35+00:00"
+ },
+ "f820af6a7fb7a39c6592a007e8611cb726cc2a8b6159fcb5e837224e04c95b87": {
+  "label": "simulation W8 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "7/7 tests passed",
+  "recorded_at": "2026-10-23T05:25:23+00:00"
+ },
+ "f98beefc2800a1cb0478d5e3d4196d6d67e7b9f6771b8009ec70221495d20131": {
+  "label": "synthesis W16 D8 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 307 generic cells, 141 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:23+00:00"
+ },
+ "fb4a86569b995d39da06bc11c3679c2bcf82af5a34e47876169bf6a06a30cda4": {
+  "label": "synthesis W32 D16 sync_active_high rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 1094 generic cells, 529 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:32:13+00:00"
+ },
+ "fc10b0878a5163538996d098355a897af2d2f21c778dfc6325a079608f484477": {
+  "label": "lint W8 D32 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T06:27:52+00:00"
+ },
+ "fcc27ba33d1e05d7e527a4cde7c4a612c033c54b8c05c10eb93a3ada7ca6145f": {
+  "label": "lint W8 D16 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "lint: PASS (0 error(s), 0 warning(s))",
+  "recorded_at": "2026-10-23T05:25:33+00:00"
+ },
+ "fe351bd0f451238bd52580d5803ed424e51d457fe8c0523758a6e4d5189ceba1": {
+  "label": "formal W8 D4 sync_active_low rw=false",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:30+00:00"
+ },
+ "fe5bea0547870fc6e57afc25fed655daef559c590e474a939be4d4c75da894a7": {
+  "label": "formal W8 D8 sync_active_low rw=true",
+  "status": "PASS",
+  "summary": "formal: PROVED",
+  "recorded_at": "2026-10-23T06:52:45+00:00"
+ },
+ "ff2053750dfbb5cebfb8b3f25a02a0cf7b70e8ccd317df05887d913a3c3c305e": {
+  "label": "synthesis W16 D8 async_active_low rw=false",
+  "status": "PASS",
+  "summary": "synthesised: 301 generic cells, 138 sequential, 0 latches",
+  "recorded_at": "2026-10-23T05:27:39+00:00"
+ }
+}

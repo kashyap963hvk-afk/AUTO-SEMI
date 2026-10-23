@@ -1,0 +1,48 @@
+# Local full stack: web app + PostgreSQL + isolated EDA worker.
+#   cp .env.example .env && docker compose up --build
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: devin
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-devin-local-only}
+      POSTGRES_DB: devin_vlsi
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devin"]
+      interval: 5s
+      retries: 10
+
+  worker:
+    build: ./worker
+    environment:
+      WORKER_TOKEN: ${WORKER_TOKEN:?set WORKER_TOKEN in .env}
+      WORKER_CONCURRENCY: "2"
+    read_only: true
+    tmpfs: [/tmp]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 256
+    mem_limit: 4g
+    cpus: 2
+    # The worker needs no outbound network; keep it on an internal network only.
+    networks: [internal]
+
+  web:
+    build: ./apps/web
+    environment:
+      DATABASE_URL: postgres://devin:${POSTGRES_PASSWORD:-devin-local-only}@db:5432/devin_vlsi
+      WORKER_URL: http://worker:8090
+      WORKER_TOKEN: ${WORKER_TOKEN}
+    ports: ["3000:3000"]
+    depends_on:
+      db: { condition: service_healthy }
+      worker: { condition: service_started }
+    networks: [internal, default]
+
+networks:
+  internal:
+    internal: true
+
+volumes:
+  pgdata:

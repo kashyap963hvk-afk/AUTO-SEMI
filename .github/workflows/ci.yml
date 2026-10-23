@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  worker:
+    name: EDA worker (real tools)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned open-source EDA toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends verilator iverilog yosys z3
+          git clone --depth 1 --branch yosys-0.33 https://github.com/YosysHQ/sby.git /tmp/sby
+          sudo make -C /tmp/sby install PREFIX=/usr/local
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e "worker[dev]"
+      - name: Capability preflight
+        run: python -m devin_vlsi_worker preflight
+        working-directory: worker
+      - name: Unit + real-tool integration tests
+        run: python -m pytest -q
+        working-directory: worker
+
+  web:
+    name: Web app (typecheck, lint, tests, build)
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: npm ci
+      - name: Embedded design assets are in sync with designs/
+        run: npx tsx scripts/sync-design-assets.ts --check
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+
+  e2e:
+    name: Browser golden path (live worker)
+    runs-on: ubuntu-24.04
+    needs: [worker, web]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install EDA toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends verilator iverilog yosys z3
+          git clone --depth 1 --branch yosys-0.33 https://github.com/YosysHQ/sby.git /tmp/sby
+          sudo make -C /tmp/sby install PREFIX=/usr/local
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+      - run: pip install -e worker
+      - run: npm ci && npx playwright-core install --with-deps chromium && npm run build
+        working-directory: apps/web
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+      - name: Start worker and web app, run the golden path in Chromium
+        working-directory: apps/web
+        env:
+          WORKER_TOKEN: ci-only-token
+          WORKER_URL: http://127.0.0.1:8090
+          DEVIN_PGLITE_DIR: /tmp/pg-ci
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: |
+          (cd ../../worker && python -m devin_vlsi_worker serve --port 8090 &)
+          npm start &
+          for i in $(seq 1 60); do curl -sf http://127.0.0.1:3000/api/health && break; sleep 1; done
+          npx tsx scripts/e2e-golden-path.ts
